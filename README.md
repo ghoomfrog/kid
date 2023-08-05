@@ -218,7 +218,7 @@ The next time the program runs, `todos` will be automatically in whatever state 
 Deleting a blob from disk is done by setting it to null.
 
 ```kid
-todos = ...
+todos: ...
 ```
 
 Blobs have length limits because of filename limitations in modern filesystems.
