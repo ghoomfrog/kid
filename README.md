@@ -288,7 +288,7 @@ $female -> ">:o"
 
 If `$female` is truthy (not null), this returns `">:o"`. Otherwise, it returns `$female`.
 
-The second type is the if-not-then conditional:
+The second type is the unless-then conditional:
 
 ```kid
 $female |> ":|"
