@@ -409,7 +409,7 @@ Using the prefix operator `/` on variable names of non-function values returns t
 
 ## Time
 
-`%%` is millisecond-level Unix timestamp integer. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
+`%%` is a millisecond-level Unix timestamp integer referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
 
 ```kid
 wait = {
