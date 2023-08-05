@@ -417,7 +417,7 @@ wait = {
 	duration = $?
 	end      = $start + $duration
 	
-	$duration < $end - $start |> $duration == $end - $start => ...
+	$duration > $end - $start ->> ...
 }
 ```
 
