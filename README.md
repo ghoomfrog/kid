@@ -136,7 +136,7 @@ We can access a list's length by prefixing its name with `%`.
 %myList
 ```
 
-If this is used on nulls, it returns 0. Otherwise, if it's used on other non-list values, it always returns 1.
+If this is used on nulls, it returns 0. Otherwise, if it's used on other non-list values, it returns 1.
 
 Now let's move on to indexing.
 
