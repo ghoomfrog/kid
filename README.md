@@ -114,7 +114,7 @@ Lists can store mixed types of values.
 myList = ":)" 123 4.56
 ```
 
-Yup! That's a list! Items are only separated with whitespace.
+Yup! That's a list! Items are only separated with whitespace or themselves.
 
 Notice how this alone makes it impossible to make lists start out with less than two items. To fix this problem, lists can't start out with nulls in them.
 
