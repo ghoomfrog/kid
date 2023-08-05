@@ -2,7 +2,7 @@
 
 # Hey, kids!
 
-Kid is a minimalist, sandboxed, dynamically typed scripting language. It has no support for standard streams (stdin, stdout and stderr) nor command line arguments. It has limited support for interacting with files, only allowing interaction with program-created ones. Though, it does have networking support.
+Kid is a minimalist, **sandboxed**, dynamically typed scripting language. It has no support for standard streams (stdin, stdout and stderr) nor command line arguments. It has limited support for interacting with files, only allowing interaction with program-created ones. Though, it does have networking support.
 
 I'm working on a cross-platform interpreter. Enjoy the design in the meantime. :)
 
