@@ -395,7 +395,7 @@ The prefix operator `/` has a lower precedence than lists, so we can do this:
 
 The operator also has lower precedence than other prefix `/` operators toward its right.
 
-Arguments shares scopes with the body of the function regardless if they're blocks or not.
+Arguments share scopes with the body of the function regardless if they're blocks or not.
 
 ```kid
 /for i=1 10 {/shout $?}
