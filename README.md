@@ -447,7 +447,7 @@ Both of these are IP-level sockets connected to the local host.
 
 `2130706433` is the raw integer that is the IPv4 address 127.0.0.1.
 
-Since integers can be up to 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses after `@`. `(0 1)` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `0` corresponds to the first half of the address (0000:0000:0000:0000), and thhe second item corresponds to the second half (0000:0000:0000:0001).
+Since integers can be up to 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses after `@`. `(0 1)` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `0` corresponds to the first half of the address (0000:0000:0000:0000), and the second item corresponds to the second half (0000:0000:0000:0001).
 
 We can send lists of integers as data through sockets using the binary operator `<~`:
 
