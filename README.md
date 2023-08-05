@@ -184,7 +184,7 @@ n#1 \ returns ...
 
 ### Separating Statements
 
-Statements are just list items. One neat feature is that newlines have the lower precedence than most operators. You'll learn what has lower precedence than newlines later in this guide.
+Statements are just list items. One neat feature is that newlines have a lower precedence than most operators. You'll learn what has lower precedence than newlines later in this guide.
 
 ```kid
 favFood = "chicken nuggets"
