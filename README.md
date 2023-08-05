@@ -223,7 +223,7 @@ todos: ...
 
 Both `:` and `=` can be used on already defined blobs.
 
-Blobs have length limits because of filename limitations in modern filesystems.
+Blobs have length limits because of filename limitations in common filesystems.
 
 ## Miscellaneous Operators
 
