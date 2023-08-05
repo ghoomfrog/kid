@@ -398,10 +398,10 @@ The operator also has lower precedence than other prefix `/` operators toward it
 Arguments share scopes with the body of the function regardless if they're blocks or not.
 
 ```kid
-/for i=1 10 {/shout $?}
+/plusOne i=99
 ```
 
-Here, `i` is defined inside the function `for`.
+Here, `i` is defined inside the function `plusOne`.
 
 To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `>`. This is *the* coroutine feature.
 
