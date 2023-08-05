@@ -217,15 +217,17 @@ todos#3 = "ok i think i'm good for today"
 
 The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended.
 
+As you can see, `=` can be used besides `:` when setting items of a blob.
+
 Deleting a blob from disk is done by setting it to null.
 
 ```kid
 todos: ...
 ```
 
-Both `:` and `=` can be used on already defined blobs.
+Using `=` on blobs deletes them and overrides them with regular variables.
 
-Blobs have length limits because of filename limitations in common filesystems.
+Blob names have length limits because of filename limitations in common filesystems.
 
 ## Miscellaneous Operators
 
