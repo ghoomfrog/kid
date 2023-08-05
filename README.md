@@ -104,7 +104,7 @@ favFood = ...
 
 Accessing undefined variables returns null.
 
-It's also good practice to explicitely null-define variables that you're going to use later.
+It's also good practice to explicitely null-define variables that you're only going to use later.
 
 ## Lists
 
