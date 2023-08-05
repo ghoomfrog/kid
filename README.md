@@ -1,3 +1,5 @@
+![kid_horizontal](https://github.com/ghoomy/kid/assets/35694451/05ceea19-d803-49af-97ab-b788f4173266)
+
 # Hey, kids!
 
 Kid is a minimalist, sandboxed, dynamically typed scripting language.
