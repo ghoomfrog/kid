@@ -355,17 +355,17 @@ Now the `interest` assignment is ignored. Also, the prefix operator `=` can be u
 
 ## Loops
 
-Kid only features Until loops at its core, using the binary operator `=>`.
+Kid only features While and Until loops at its core, using the respective binary operators `->>` and `|>>`.
 
 ```kid
 nLooks = 0
-$male =>
+$female -->
 	nLooks = nLooks + 1
 ```
 
-Until `$male` is truthy (while it's null), this increments `nLooks` by `1`.
+While `$female` is truthy, this increments `nLooks` by `1`.
 
-Operands of `=>` are optional, defaulting to null. 
+Operands of `->>` and `|>>` are optional, defaulting to null. 
 
 ## Functions
 
