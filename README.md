@@ -263,17 +263,17 @@ These operators have lower precedences than the numeric ones above.
 
 ## Default Values
 
-We can use the prefix operator `^` to get the default value of a value's type.
+We can use the prefix operator ``` ` ``` to get the default value of a value's type.
 
 ```kid
-^...         \ ...
-^123         \ 0
-^4.56        \ 0.0
-^":)"        \ ""
-^":)"...     \ ... ...
-^{$? + 1}    \ {}
-^@2130706433 \ @0
-^@(0 1)      \ @(0 0)
+`...         \ ...
+`123         \ 0
+`4.56        \ 0.0
+`":)"        \ ""
+`":)"...     \ ... ...
+`{$? + 1}    \ {}
+`@2130706433 \ @0
+`@(0 1)      \ @(0 0)
 ```
 
 One benefit to this is checking a value's type by comparing its default value.
