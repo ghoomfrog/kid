@@ -340,7 +340,7 @@ $female ->
 
 Lines with the same tab indentation belong to same block.
 
-By default, blocks return the last last expression. We can use the prefix operator `=` to override that.
+By default, blocks return the last expression. We can use the prefix operator `=` to override that.
 
 ```kid
 preparedness = $female ->
