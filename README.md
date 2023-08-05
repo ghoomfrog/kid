@@ -227,8 +227,6 @@ Blobs have length limits because of filename limitations in modern filesystems.
 
 ## Miscellaneous Operators
 
-Here's some miscellaneous operators:
-
 ### Numeric Operators
 
 - `-$x`
