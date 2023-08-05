@@ -278,6 +278,8 @@ We can use the prefix operator `^` to get the default value of a value's type.
 
 One benefit to this is checking a value's type by comparing its default value.
 
+Using this operator on references returns a reference to null.
+
 You'll learn more about the other types later in this guide, don't worry. ;)
 
 ## Conditionals
@@ -439,6 +441,8 @@ b = 2
 ```
 
 Here, `a` and `b` are defined before `c` because `c` was defined asynchronously after `1000` milliseconds.
+
+Asynchronous blocks return a reference to null which eventually gets assigned their return value.
 
 ## Sockets
 
