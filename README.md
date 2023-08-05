@@ -221,6 +221,8 @@ Deleting a blob from disk is done by setting it to null.
 todos: ...
 ```
 
+Both `:` and `=` can be used on already defined blobs.
+
 Blobs have length limits because of filename limitations in modern filesystems.
 
 ## Miscellaneous Operators
