@@ -359,7 +359,7 @@ Kid only features While and Until loops at its core, using the respective binary
 
 ```kid
 nLooks = 0
-$female -->
+$female ->>
 	nLooks = nLooks + 1
 ```
 
