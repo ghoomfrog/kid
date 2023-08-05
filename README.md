@@ -66,6 +66,8 @@ Underscores (`_`) are excluded for simplicity, and digits are excluded to improv
 
 ### Escape Sequences
 
+Escape sequences only apply inside quoted strings.
+
 * `\\` — `\`
 * `\'` — `'`
 * `\"` — `"`
