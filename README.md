@@ -314,7 +314,7 @@ Newlines separate items, and lines with the same tab indentation belong to same 
 
 ## Blobs
 
-Blobs are global keys stored in disk (alongside memory). They're suffixed by `!`.
+Blobs are global keys stored in disk (alongside memory). They're suffixed with `!`.
 
 ```kid
 todos! =
@@ -396,7 +396,7 @@ wait = {
 
 ## Asynchronous Evaluation
 
-Expressions can be evaluated asynchronously if they're enclosed in `[]`.
+Expressions can be evaluated asynchronously if they're enclosed in `[]`. 
 
 ```kid
 a = 1
