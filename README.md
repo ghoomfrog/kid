@@ -10,7 +10,7 @@ I'm going to work on a cross-platform interpreter. Enjoy the design in the meant
 
 ## Comments
 
-Kid only has inline comments, prefixed with `\`.
+Kid only has inline comments, prefixed by `\`.
 
 ```kid
 \ Hey, kids (again)!
