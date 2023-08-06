@@ -128,7 +128,7 @@ Keys alongside `=` can be omitted to automatically assign items to position-base
 ":)" score=123 4.56
 ```
 
-Now, the `":)"` is assigned to the index `0`, and `4.56` to `1`. It's equivalent to this:
+Now, the item `":)"` is assigned to the index `0`, and `4.56` to `1`. It's equivalent to this:
 
 ```kid
 0=":)" score=123 1=4.56
