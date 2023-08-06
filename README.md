@@ -4,7 +4,7 @@
 
 Kid is a minimalist, **sandboxed**, dynamically typed scripting language. It has no support for explicit use of standard streams (stdin, stdout and stderr) nor command line arguments. It has limited support for interacting with files, only allowing interaction with program-created ones. Though, it does have networking support.
 
-I'm working on a cross-platform interpreter. Enjoy the design in the meantime. :)
+I'm going to work on a cross-platform interpreter. Enjoy the design in the meantime. :)
 
 # Let's begin!
 
@@ -46,6 +46,24 @@ Floating-point numbers, or floats, in Kid are 64-bit.
 
 `4.0` and `0.56` can't be shortened to `4.` and `.56`. This is to reduce confusion with adjacent syntax that uses `.` like `...`.
 
+## Groups
+
+Groups are expressions that have higher precedence than their environment. They're enclosed in `()`.
+
+```kid
+1 + 1 * 2
+```
+
+This returns 3 because `*` has a higher precedence than `+`. If we want to prioritize `+`, we do this:
+
+```kid
+(1 + 1) * 2
+```
+
+Now, this returns 4.
+
+Of course, groups can be nested.
+
 ## Strings
 
 ```kid
@@ -78,156 +96,124 @@ Escape sequences only apply inside quoted strings.
 * `\r` — CR
 * `\e` — ESC
 
-## Variables
+## Spaces
 
-Variable names can be any value.
-
-```kid
-favFood = "chicken nuggets"
-```
-
-In this case, the name is the string `favFood`.
-
-Assignment expressions return the variable name (`favFood` in this case).
-
-The prefix operator `$` can be used to access the value of a variable.
+Spaces are associative arrays that can store mixed types of values.
 
 ```kid
-$favFood
+smiley=":)" score=123 ratio=4.56
 ```
 
-This returns `"chicken nuggets"`.
+Left hand operands of `=` are keys, and right ones are values identified by those keys. As you can see, item separation is implicit and is not marked by anything.
 
-We can manually delete (garbage-collect) variables by setting them to null.
+Items in the same space can access each other using the prefix operator `$`:
 
 ```kid
-favFood = ...
+smiley=":)" score=123 ratio=4.56 otherScore=$score
 ```
 
-Accessing undefined variables returns null.
+Here, `$score` expands to `123` and is then assigned to the key `otherScore`.
 
-It's also good practice to explicitely null-define variables that you're only going to use later.
-
-## Lists
-
-Lists can store mixed types of values.
+We can also redefine keys:
 
 ```kid
-myList = ":)" 123 4.56
+smiley=":)" score=123 ratio=4.56 smiley=":^)"
 ```
 
-Yup! That's a list! Items are only separated with whitespace or themselves.
-
-Notice how this alone makes it impossible to make lists start out with less than two items. To fix this problem, lists can't start out with nulls in them.
+Keys alongside `=` can be omitted to automatically assign values to position-based keys, called indices.
 
 ```kid
-myList = ":)"...
+":)" score=123 4.56
 ```
 
-Now Kid can detect that this is intended to be a list *and* make it only start out with one item. Genius!
+Now, the `":)"` is assigned to the index `0`, and `4.56` to `1`. It's equivalent to this:
 
 ```kid
-myList = ... ...
+0=":)" score=123 1=4.56
 ```
 
-And this is how to make a list start out empty.
+Kid supports negative indices, and accessing undefined keys returns null.
 
-We can access a list's length by prefixing its name with `%`.
+Spaces that only have indexed items are called lists. Ones that only have non-indexed (or keyed) items are called tables.
+
+A key-value assignment is enough to make a space:
 
 ```kid
-%myList
+score=123
 ```
 
-If this is used on nulls, it returns 0. Otherwise, if it's used on other non-list values, it returns 1.
-
-Now let's move on to indexing.
+Notice how this alone makes it impossible to make lists start out with less than two indexed items. To fix this problem, spaces can't start out with nulls in them.
 
 ```kid
-myList#0
+":)"...
 ```
 
-This is a reference to the item at index `0`. References are just values. They can be used in assignments to set the item to a new value.
+Now, Kid can detect that this is intended to be a space *and* make it only start out with one item. Genius!
+
+Following that logic, this is how to make a list start out empty:
 
 ```kid
-myList#0 = ":D"
+... ...
 ```
 
-And just like variables, `$` will get the value of the referenced item.
+Let's consider two keyed spaces:
 
 ```kid
-$myList#0
+integers = ( 43 21 65 )
+numbers = ( 9.8 777 )
 ```
 
-As you can see, `$` has a lower precedence than `#`, making it unnecessary to do `$(myList#0)`.
-
-Kid supports negative indices, and accessing items that are out of bounds returns null.
-
-To append an item, we just set the item whose index is the list's length.
+We can access a space's number of items, called its length, by prefixing its name with `%`.
 
 ```kid
-myList#%myList = newItem
+%integers
 ```
 
-To delete the last item, we just set it to null, which will decrement the list's length.
+This returns 3. If this operator is used on nulls, it returns 0. Otherwise, if it's used on other non-space values, it returns 1.
+
+We can use access keys of neighboring or external spaces using the binary operator `#`:
 
 ```kid
-myList#-1 = ...
+numbers = ( 9.8 777 integers#1 )
 ```
 
-All these operations can be done on strings too, with items being Unicode characters.
-
-If indexing syntax is used with non-list values, the index `0` refers to the value, and other indices refer to null.
+To delete a key, we just set it to null, which will decrement the space's length.
 
 ```kid
-n = 1
-n#0 \ returns $n
-n#1 \ returns ...
+numbers = ( 9.8 777 21 2=... )
 ```
 
-### Separating Statements
-
-Statements are just list items. One neat feature is that newlines have a lower precedence than most operators. You'll learn what has lower precedence than newlines later in this guide.
+This cancels out to:
 
 ```kid
-favFood = "chicken nuggets"
-favPetAnimal = "cat"
+numbers = ( 9.8 21 )
 ```
 
-If this wasn't a feature, the latter would be interpreted as:
+Now, indices have been shifted and `21` is assigned to the index `1` instead of `2`.
+
+If `#` is used with non-space values, the key `0` refers to the value, and other keys refer to null.
+
+The binary operator `:` allows us to evaluate an expression inside a scope outside it.
 
 ```kid
-favFood = "chicken nuggets" (favPetAnimal = "cat")
+numbers: 2 = 20
 ```
 
-## Blobs
+Here, I set the item at index `2` (which is `21`) to `20`.
 
-Blobs are global variables stored in disk (alongside memory). They have the same assignment syntax except `=` is replaced by `:`.
+Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
+
+One last thing, if we omit keys from assignments, the space returns the item instead of itself.
 
 ```kid
-todos:
-	"do stuff"
-	"do more stuff"
-	"pet self"
-	"do even more stuff damn it!"
-
-...
-
-todos#3 = "ok i think i'm good for today"
+numbers = ( 9.8 =20 )
 ```
 
-The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended.
+`numbers` is now `20` and not a space anymore.
 
-As you can see, `=` can be used besides `:` when setting items of a blob.
+## More on Strings
 
-Deleting a blob from disk is done by setting it to null.
-
-```kid
-todos: ...
-```
-
-Using `=` on blobs deletes them and overrides them with regular variables.
-
-Blob names have length limits because of filename limitations in common filesystems.
+Now that you've learned about spaces, let me tell you that strings are just lists of Unicode character integers.
 
 ## Miscellaneous Operators
 
@@ -252,7 +238,7 @@ Nulls are treated as 0 in numeric operations.
 
 ### Relational Operators
 
-These operators return the right hand operand on success, and null otherwise.
+These operators return the right operand on success, and null otherwise.
 
 - `$x == $y`
 - `$x < $y`
@@ -277,8 +263,6 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 ```
 
 One benefit to this is checking a value's type by comparing its default value.
-
-Using this operator on references returns a reference to null.
 
 You'll learn more about the other types later in this guide, don't worry. ;)
 
@@ -314,29 +298,11 @@ If `$female` is truthy, this returns `">:o"`. Otherwise, it returns `":|"`.
 
 These operators have lower precedences than newlines.
 
-Operands of `->` and `|>` are optional, defaulting to null. 
-
-## Groups
-
-Groups are expressions that have higher precedence than their environment. They're enclosed in `()`.
-
-```kid
-1 + 1 * 2
-```
-
-This returns 3 because `*` has a higher precedence than `+`. If we want to prioritize `+`, we do this:
-
-```kid
-(1 + 1) * 2
-```
-
-Now this returns 4.
-
-Of course, groups can be nested.
+Operands of `->` and `|>` are optional, defaulting to null.
 
 ## Blocks
 
-Blocks are scoped groups of statements treated as one expression.
+Blocks are syntactic sugar that uses newlines and tab indentation to group keys into spaces.
 
 ```kid
 $female ->
@@ -344,20 +310,29 @@ $female ->
 	interest = 1.0
 ```
 
-Lines with the same tab indentation belong to same block.
+Newlines separate items, and lines with the same tab indentation belong to same block.
 
-By default, blocks return the last expression. We can use the prefix operator `=` to override that.
+## Blobs
+
+Blobs are global keys stored in disk (alongside memory). They're suffixed by `!`.
 
 ```kid
-preparedness = $female ->
-	face = ">:o"
-	= 0.0
-	interest = 1.0
+todos! =
+	"do stuff"
+	"do more stuff"
+	"pet self"
+	"do even more stuff damn it!"
+
+...
+
+todos!: 3 = "ok i think i'm good for today"
 ```
 
-Here, the block returns `0.0`, and if `$female` is truthy, the conditional returns `0.0` which is then assigned to `preparedness`.
+The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended.
 
-Now the `interest` assignment is ignored. Also, the prefix operator `=` can be used without an operand in order to immediately return null.
+Deleting a blob also deletes it from disk.
+
+Blob names have length limits because of filename limitations in common filesystems.
 
 ## Loops
 
@@ -366,7 +341,7 @@ Kid only features While and Until loops at its core, using the respective binary
 ```kid
 nLooks = 0
 $female ->>
-	nLooks = nLooks + 1
+	: nLooks = nLooks + 1
 ```
 
 While `$female` is truthy, this increments `nLooks` by `1`.
@@ -391,7 +366,7 @@ Calling a function is done using the prefix operator `/` with the function's nam
 /plusOne 99
 ```
 
-The prefix operator `/` has a lower precedence than lists, so we can do this:
+The prefix operator `/` has a lower precedence than spaces, so we can do this:
 
 ```kid
 /duplicate ditto 20
@@ -400,14 +375,6 @@ The prefix operator `/` has a lower precedence than lists, so we can do this:
 `ditto 20` is a list passed as an argument to `duplicate`. Notice how I didn't need to do `/duplicate(ditto 20)`.
 
 The operator also has lower precedence than other prefix `/` operators toward its right.
-
-Arguments share scopes with the body of the function regardless if they're blocks or not.
-
-```kid
-/plusOne i=99
-```
-
-Here, `i` is defined inside the function `plusOne`.
 
 To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `>`. This is *the* coroutine feature.
 
@@ -442,7 +409,7 @@ b = 2
 
 Here, `a` and `b` are defined before `c` because `c` was defined asynchronously after `1000` milliseconds.
 
-Asynchronous blocks return a reference to null which eventually gets assigned their return value.
+Asynchronous blocks always return null.
 
 ## Sockets
 
