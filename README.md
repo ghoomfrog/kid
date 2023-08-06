@@ -138,7 +138,7 @@ Kid supports negative indices, and accessing undefined keys returns null.
 
 Spaces that only have indexed items are called lists. Ones that only have non-indexed (or keyed) items are called tables.
 
-An assignment is enough to make a space:
+An assignment is enough to construct a space:
 
 ```kid
 score=123
