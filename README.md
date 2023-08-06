@@ -182,7 +182,7 @@ numbers = ( 9.8 777 integers#1 )
 To delete a key, we just set it to null, which will decrement the space's length.
 
 ```kid
-numbers = ( 9.8 777 21 2=... )
+numbers = ( 9.8 777 21 1=... )
 ```
 
 This cancels out to:
