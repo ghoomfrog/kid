@@ -255,7 +255,7 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 `4.56        \ 0.0
 `":)"        \ ""
 `":)"...     \ ... ...
-`{$? + 1}    \ {}
+`{? + 1}     \ {}
 `@2130706433 \ @0
 `@(0 1)      \ @(0 0)
 ```
@@ -351,12 +351,12 @@ Operands of `->>` and `|>>` are optional, defaulting to null.
 All functions in Kid are scoped coroutines with one optional parameter and one return value which is null by default.
 
 ```kid
-plusOne = {$? + 1}
+plusOne = {? + 1}
 ```
 
-Here, `plusOne` is assigned a function that returns `$? + 1`.
+Here, `plusOne` is assigned a function that returns `? + 1`.
 
-`?` is a reference to the argument. It defaults to null if no argument was passed.
+`?` expands to the argument. It defaults to null if no argument was passed.
 
 Calling a function is done using the prefix operator `/` with the function's name, followed by an optional argument.
 
@@ -385,7 +385,7 @@ Using the prefix operator `/` on variable names of non-function values returns t
 ```kid
 wait = {
 	start    = %%
-	duration = $?
+	duration = ?
 	end      = $start + $duration
 	
 	$end - $start < $duration ->> ...
@@ -431,7 +431,7 @@ We can send lists of integers as data through sockets using the binary operator 
 We can also assign a function as the receiver of data coming from a socket using the binary operator `~>`:
 
 ```kid
-@2130706433 ~> {/doSomethingWith $?}
+@2130706433 ~> {/doSomethingWith ?}
 ```
 
 The function is called synchronously with a string argument.
