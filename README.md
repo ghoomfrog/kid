@@ -66,6 +66,8 @@ Of course, groups can be nested.
 
 ## Strings
 
+Strings are just lists of Unicode character integers. You'll learn more about lists in the [next section](#spaces).
+
 ```kid
 ":)"
 ```
@@ -210,10 +212,6 @@ numbers = ( 9.8 =20 )
 ```
 
 `numbers` is now `20` and not a space anymore.
-
-## More on Strings
-
-Now that you've learned about spaces, let me tell you that strings are just lists of Unicode character integers.
 
 ## Miscellaneous Operators
 
