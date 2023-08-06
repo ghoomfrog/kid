@@ -211,7 +211,7 @@ One last thing, if we omit keys from assignments, the space returns the item ins
 numbers = ( 9.8 =20 )
 ```
 
-`numbers` is now `20` and not a space anymore.
+Here, `numbers` is `20`, not a space.
 
 ## Miscellaneous Operators
 
