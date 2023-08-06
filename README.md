@@ -173,7 +173,7 @@ We can access a space's number of items—its length—by prefixing its name by 
 
 This returns 3. If this operator is used on nulls, it returns 0. Otherwise, if it's used on other non-space values, it returns 1.
 
-We can access keys of neighboring or external spaces using the binary operator `#`:
+We can access keys of outside spaces using the binary operator `#`:
 
 ```kid
 numbers = ( 9.8 777 integers#1 )
