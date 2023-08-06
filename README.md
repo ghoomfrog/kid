@@ -144,7 +144,7 @@ A key-item assignment is enough to make a space:
 score=123
 ```
 
-Notice how until now, we can't make lists start out with less than two indexed items. To fix this problem, spaces can't start out with nulls in them.
+Notice how until now, we can't make lists start out with less than two items. To fix this problem, spaces can't start out with nulls in them.
 
 ```kid
 ":)"...
