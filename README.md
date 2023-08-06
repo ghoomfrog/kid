@@ -106,7 +106,7 @@ Spaces are associative arrays that can store mixed types of values.
 smiley=":)" score=123 ratio=4.56
 ```
 
-Left operands of `=` are keys, and right ones are items assigned to those keys. As you can see, item separation is implicit and is not marked by anything.
+Left operands of `=` are keys, and right ones are items assigned to those keys. Keys can be of any type. As you can see, item separation is implicit and is not marked by anything.
 
 Items in the same space can access each other using the prefix operator `$`:
 
