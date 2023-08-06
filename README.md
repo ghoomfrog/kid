@@ -300,7 +300,7 @@ Operands of `->` and `|>` are optional, defaulting to null.
 
 ## Blocks
 
-Blocks are syntactic sugar that uses newlines and tab indentation to group keys into spaces.
+Blocks are syntactic sugar that uses newlines and tab indentation to hierarchically group spaces.
 
 ```kid
 $female ->
