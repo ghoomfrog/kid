@@ -144,15 +144,15 @@ A key-item assignment is enough to make a space:
 score=123
 ```
 
-Notice how until now, we can't make lists start out with less than two items. To fix this problem, spaces can't start out with nulls in them.
+Notice how until now, we can't construct lists with less than two items. To fix this problem, spaces are not allowed to be constructed with nulls in them.
 
 ```kid
 ":)"...
 ```
 
-Now, Kid can detect that this is intended to be a space *and* make it only start out with one item. Genius!
+Now, Kid can detect that this is intended to be a list *and* construct it with only one item. Genius!
 
-Following that logic, this is how to make a list start out empty:
+Following that logic, this is how to construct an empty list:
 
 ```kid
 ... ...
