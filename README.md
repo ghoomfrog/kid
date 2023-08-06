@@ -260,7 +260,7 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 `@(0 1)      \ @(0 0)
 ```
 
-One benefit to this is checking a value's type by comparing its default value.
+One benefit to this is checking a value's type by comparing against its default value.
 
 You'll learn more about the other types later in this guide, don't worry. ;)
 
