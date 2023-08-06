@@ -179,6 +179,8 @@ We can access keys of neighboring or external spaces using the binary operator `
 numbers = ( 9.8 777 integers#1 )
 ```
 
+When accessing keys, the ones in the same space take priority over the ones outside.
+
 To delete a key, we just set it to null, which will decrement the space's length.
 
 ```kid
