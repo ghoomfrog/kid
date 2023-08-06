@@ -165,7 +165,7 @@ integers = ( 43 21 65 )
 numbers = ( 9.8 777 )
 ```
 
-We can access a space's number of items, called its length, by prefixing its name with `%`.
+We can access a space's number of items—its length—by prefixing its name with `%`.
 
 ```kid
 %integers
