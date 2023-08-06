@@ -144,7 +144,7 @@ An assignment is enough to construct a space:
 score=123
 ```
 
-Notice how until now, we can't construct lists with less than two items. To fix this problem, spaces are not allowed to be constructed with nulls in them.
+Notice how until now, we can't construct lists with less than two items. To fix this problem, nulls are ignored in space constructions.
 
 ```kid
 ":)"...
