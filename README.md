@@ -284,7 +284,7 @@ $female |> ":|"
 
 If `$female` is null, this returns `":|"`. Otherwise, it returns `$female`.
 
-`|>` can be used to specify a fallback in case a value is null.
+And so `|>` can be used to specify a fallback in case a value is null.
 
 `->` and `|>` can be combined to make an if-else combination:
 
