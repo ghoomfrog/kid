@@ -330,9 +330,9 @@ todos!: 3 = "ok i think i'm good for today"
 
 The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended.
 
-Deleting a blob also deletes it from disk.
+Setting a blob to null deletes it from disk.
 
-Blob names have length limits because of filename limitations in common filesystems.
+Blobs have length limits because of filename limitations in common filesystems.
 
 ## Loops
 
