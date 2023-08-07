@@ -48,7 +48,7 @@ Floating-point numbers, or floats, in Kid are 64-bit.
 
 ## Groups
 
-Groups are expressions that have higher precedence than their environment. They're enclosed in `()`.
+Groups are expressions that have a higher precedence than their environment. They're enclosed in `()`.
 
 ```kid
 1 + 1 * 2
