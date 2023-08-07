@@ -382,7 +382,7 @@ The prefix operator `/` has a lower precedence than spaces, so we can do this:
 
 Inline calls are interpreted from right to left.
 
-To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `>`. This is *the* coroutine feature.
+To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `=>`. This is *the* coroutine feature.
 
 Using the prefix operator `/` on keys of non-function values returns them.
 
