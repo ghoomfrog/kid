@@ -197,7 +197,7 @@ Now, indices have been shifted and `21` is assigned to the index `1` instead of 
 
 If `#` is used with non-space values, the key `0` refers to the value, and other keys refer to null.
 
-The binary operator `:` allows us to inject expressions into a space's constructor.
+The binary operator `:` allows us to inject an expression into a space's constructor.
 
 ```kid
 numbers: 2 = 20
