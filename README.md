@@ -386,6 +386,13 @@ To return from a function without resetting its state: without making it start f
 
 Using the prefix operator `/` on keys of non-function values returns them.
 
+```kid
+n = 100
+/n
+```
+
+Here, `/n` simply returns `100`.
+
 ## Time
 
 `%%` is a millisecond-level Unix timestamp integer referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
