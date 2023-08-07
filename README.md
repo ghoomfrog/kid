@@ -4,7 +4,7 @@
 
 Kid is a minimalist, **sandboxed**, dynamically typed scripting language. It has no support for explicit use of standard streams (stdin, stdout and stderr) nor command line arguments. It has limited support for interacting with files, only allowing interaction with program-local, program-created ones. Though, it does have networking support.
 
-I'm going to work on a cross-platform interpreter. Enjoy the design in the meantime. :)
+I'm going to work on a cross-platform interpreter and the standard library. Enjoy the design in the meantime. :)
 
 # Let's begin!
 
