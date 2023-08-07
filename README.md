@@ -1,4 +1,4 @@
-![kid_horizontal](https://github.com/ghoomy/kid/assets/35694451/5ebd0509-9da5-4060-9732-5c1f69204462)
+![kid_horizontal](https://github.com/ghoomy/kid/assets/35694451/2ece4850-030f-4f8b-9f5f-6a24622fbff9)
 
 # Hey, kids!
 
