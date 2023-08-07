@@ -380,7 +380,7 @@ The prefix operator `/` has a lower precedence than spaces, so we can do this:
 
 `ditto 20` is a list passed as an argument to `duplicate`. Notice how I didn't need to do `/duplicate(ditto 20)`.
 
-The operator also has a lower precedence than other prefix `/` operators toward its right.
+Inline calls are interpreted from right to left.
 
 To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `>`. This is *the* coroutine feature.
 
@@ -432,7 +432,7 @@ The first line uses an IPv4 address, and the second one uses an IPv6 one.
 
 Since integers are 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses. `(0 1)` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `1` corresponds to the least significant half of the address (0000:0000:0000:0001), and the second item `0` corresponds to the most significant half (0000:0000:0000:0000).
 
-Multiple `<~` operations are interpreted from right to left, and each of them returns the sent list, so the latter code can be shortened to:
+Inline `<~` operations are interpreted from right to left, and each of them returns the sent list, so the latter code can be shortened to:
 
 ```kid
 2130706433 <~ (0 1) <~ (21 43 65)
