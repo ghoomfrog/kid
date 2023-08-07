@@ -384,7 +384,7 @@ Inline calls are interpreted from right to left.
 
 To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `>`. This is *the* coroutine feature.
 
-Using the prefix operator `/` on variable names of non-function values returns them.
+Using the prefix operator `/` on keys of non-function values returns them.
 
 ## Time
 
@@ -454,6 +454,6 @@ All modules are global and are stored in one folder. The prefix operator `+` is 
 + discord
 ```
 
-Module names are not the same as their filenames. Just like variable names, modules names can be of any type (`discord` here is of course just a string). But just like blobs, they also have length limits.
+Module names are not the same as their filenames. Just like keys, module names can be of any type (`discord` here is of course just a string). But just like blobs, they also have length limits.
 
 Kid ensures that the same module is never included more than once in interlinked programs.
