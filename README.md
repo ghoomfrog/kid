@@ -215,6 +215,8 @@ numbers = ( 9.8 =20 )
 
 Here, `numbers` is `20`, not a space.
 
+Keep in mind that passing spaces as values doesn't copy the space, only a reference to it that is treated as space.
+
 ## Miscellaneous Operators
 
 ### Numeric Operators
@@ -347,6 +349,8 @@ $female ->>
 ```
 
 While `$female` is truthy, this increments `nLooks` by `1`.
+
+The operator lazily evaluate the right operand.
 
 Operands of `->>` and `|>>` are optional, defaulting to null. 
 
