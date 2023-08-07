@@ -288,6 +288,8 @@ If `$female` is null, this returns `":|"`. Otherwise, it returns `$female`.
 
 And so `|>` can be used to specify a fallback in case a value is null.
 
+Both operators lazily evaluate the right operand.
+
 `->` and `|>` can be combined to make an if-else combination:
 
 ```kid
@@ -374,7 +376,7 @@ The prefix operator `/` has a lower precedence than spaces, so we can do this:
 
 `ditto 20` is a list passed as an argument to `duplicate`. Notice how I didn't need to do `/duplicate(ditto 20)`.
 
-The operator also has lower precedence than other prefix `/` operators toward its right.
+The operator also has a lower precedence than other prefix `/` operators toward its right.
 
 To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `>`. This is *the* coroutine feature.
 
@@ -411,34 +413,34 @@ Here, `a` and `b` are defined before `c` because `c` was defined asynchronously 
 
 Asynchronous blocks always return null.
 
-## Sockets
+## Networking
+
+We can send a list of integers as data to an IP-identified network or computer using the binary operator `<~`.
 
 ```kid
-@2130706433
-@(0 1)
+2130706433 <~ (21 43 65)
+(0 1) <~ (21 43 65)
 ```
 
-Both of these are IP-level sockets connected to the local host.
+The first line uses an IPv4 address, and the second one uses an IPv6 one.
 
 `2130706433` is the raw integer that is the IPv4 address 127.0.0.1.
 
-Since integers can be up to 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses after `@`. `(0 1)` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `0` corresponds to the first half of the address (0000:0000:0000:0000), and the second item corresponds to the second half (0000:0000:0000:0001).
+Since integers can be up to 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses. `(0 1)` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `0` corresponds to the first half of the address (0000:0000:0000:0000), and the second item corresponds to the second half (0000:0000:0000:0001).
 
-We can send lists of integers as data through sockets using the binary operator `<~`:
-
-```kid
-@2130706433 <~ (21 43 65)
-```
-
-We can also assign a function as the receiver of data coming from a socket using the binary operator `~>`:
+Multiple `<~` operations are interpreted from right to left, and each of them returns the sent list, so the latter code can be shortened to:
 
 ```kid
-@2130706433 ~> {/doSomethingWith ?}
+2130706433 <~ (0 1) <~ (21 43 65)
 ```
 
-The function is called synchronously with a string argument.
+We can also assign an expression to be lazily evaluated on incoming data using the binary operator `~>`:
 
-A special case of sockets is `@0` and `@(0 0)` which don't do anything with data.
+```kid
+2130706433 ~> /doSomethingWith ?
+```
+
+A special case of addresses is `0` and `(0 0)` which don't do anything with data.
 
 ## Modules
 
