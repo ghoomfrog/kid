@@ -427,7 +427,7 @@ Since integers can be up to 64 bits, and IPv6 addresses are 128 bits (double 64)
 We can send lists of integers as data through sockets using the binary operator `<~`:
 
 ```kid
-@2130706433 <~ 21 43 65
+@2130706433 <~ (21 43 65)
 ```
 
 We can also assign a function as the receiver of data coming from a socket using the binary operator `~>`:
