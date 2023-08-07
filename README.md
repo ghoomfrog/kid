@@ -318,7 +318,7 @@ Newlines separate items, and lines with the same tab indentation belong to same 
 
 ## Blobs
 
-Blobs are global keys stored in disk (alongside memory). They're suffixed with `!`.
+Blobs are global keys stored in disk (alongside memory) in a program-local folder. They're suffixed with `!`.
 
 ```kid
 todos! =
