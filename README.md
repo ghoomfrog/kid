@@ -197,17 +197,21 @@ Now, indices have been shifted and `21` is assigned to the index `1` instead of 
 
 If `#` is used with non-space values, the key `0` refers to the value, and other keys refer to null.
 
-The binary operator `:` allows us to inject an expression into a space's constructor.
+The binary operator `:` allows us to append an expression at the end of a space's constructor.
 
 ```kid
-numbers: 2 = 20
+numbers: 20
 ```
 
-Here, I set the item at index `2` (which is `21`) to `20`.
+Now, it's:
+
+```kid
+numbers = ( 9.8 21 20 )
+```
 
 Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
 
-One last thing, if we omit keys from assignments, the space returns the item instead of itself.
+If we omit keys from assignments, the space returns the item instead of itself.
 
 ```kid
 numbers = ( 9.8 =20 )
@@ -215,7 +219,7 @@ numbers = ( 9.8 =20 )
 
 Here, `numbers` is `20`, not a space.
 
-Keep in mind that passing spaces as values doesn't copy the space, only a reference to it that is treated as space.
+Passing spaces as values doesn't copy the space, only a reference to it that is treated as space.
 
 ## Miscellaneous Operators
 
