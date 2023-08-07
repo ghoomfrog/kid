@@ -1,4 +1,4 @@
-![Kid logo](https://github.com/ghoomy/kid/assets/35694451/57a5a23e-6790-4397-8153-8da432c3989c)
+![kid_horizontal](https://github.com/ghoomy/kid/assets/35694451/6b6a8d3b-a1bc-43ab-989c-b7201e310302)
 
 # Hey, kids!
 
