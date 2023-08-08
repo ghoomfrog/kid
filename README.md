@@ -453,4 +453,4 @@ All modules are global and are stored in one folder. The prefix operator `+` is 
 
 Module names are not the same as their filenames. Just like keys, module names can be of any type (`discord` here is of course just a string). But just like blobs, they also have length limits.
 
-Kid ensures that the same module is never included more than once in interlinked programs.
+Kid ensures that the same module is never included more than once in a program.
