@@ -100,7 +100,7 @@ Escape sequences only apply inside quoted strings.
 
 ## Spaces
 
-Spaces are associative arrays that can store mixed types of values.
+Spaces are associative arrays that can store mixed types of keys and items.
 
 ```kid
 smiley=":)" score=123 ratio=4.56
