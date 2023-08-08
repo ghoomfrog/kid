@@ -318,7 +318,7 @@ Newlines separate items, and lines with the same tab indentation belong to same 
 
 ## Blobs
 
-Blobs are global keys stored in disk (alongside memory) in a program-local folder. They're prefixed by `@`.
+Blobs are keys stored in disk (alongside memory) in a program-local folder. They're prefixed by `@`.
 
 ```kid
 @todos =
@@ -332,9 +332,9 @@ Blobs are global keys stored in disk (alongside memory) in a program-local folde
 @todos: 3 = "ok i think i'm good for today"
 ```
 
-The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended.
+The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended. And if `todos` was part of a space, that space will get loaded too even if it's no assigned to a blob.
 
-Setting a blob to null deletes it from disk.
+Setting a blob or its containing space to null deletes it from disk.
 
 Blobs have length limits because of filename limitations in common filesystems.
 
