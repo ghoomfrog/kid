@@ -219,7 +219,7 @@ numbers = ( 9.8 =20 )
 
 Here, `numbers` is `20`, not a space.
 
-Passing spaces as values doesn't copy the space, only a reference to it that is treated as space.
+Spaces are assigned and passed by reference.
 
 ## Miscellaneous Operators
 
@@ -390,6 +390,8 @@ n = 100
 ```
 
 Here, `!n` simply returns `100` even with an argument.
+
+Functions are assigned and passed by reference.
 
 ## Time
 
