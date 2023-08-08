@@ -134,7 +134,7 @@ Now, the item `":)"` is assigned to the index `0`, and `4.56` to `1`. It's equiv
 0=":)" score=123 1=4.56
 ```
 
-Kid supports negative indices, and accessing undefined keys returns null.
+Accessing undefined keys returns null.
 
 Spaces that only have indexed items are called lists. Ones that only have non-indexed (or keyed) items are called tables.
 
