@@ -376,7 +376,7 @@ Calling a function is done using the prefix operator `/` with the function's nam
 /plusOne 99
 ```
 
-The prefix operator `/` has a lower precedence than spaces, so we can do this:
+`/` has a lower precedence than spaces, so we can do this:
 
 ```kid
 /duplicate ditto 20
@@ -395,7 +395,7 @@ n = 100
 /n
 ```
 
-Here, `/n` simply returns `100`.
+Here, `/n` simply returns `100` even with an argument.
 
 ## Time
 
