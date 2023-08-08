@@ -414,7 +414,7 @@ Expressions can be evaluated asynchronously if they're enclosed in `[]`.
 ```kid
 a = 1
 [
-	/wait 1000
+	!wait 1000
 	c = 3
 ]
 b = 2
@@ -442,7 +442,7 @@ Since integers are 64 bits, and IPv6 addresses are 128 bits (double 64), a list 
 We can also assign an expression to be lazily evaluated on incoming data using the binary operator `~>`:
 
 ```kid
-2130706433 ~> /doSomethingWith ?
+2130706433 ~> !doSomethingWith ?
 ```
 
 A special case of addresses is `0` and `(0 0)` which don't do anything with data.
