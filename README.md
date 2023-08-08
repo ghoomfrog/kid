@@ -203,11 +203,7 @@ The binary operator `:` allows us to append an expression at the end of a space'
 numbers: 20
 ```
 
-Now, it's:
-
-```kid
-numbers = ( 9.8 21 20 )
-```
+Now, `numbers` is `( 9.8 21 20 )`.
 
 Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
 
