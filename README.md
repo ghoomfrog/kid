@@ -264,8 +264,6 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 `":)"        \ ""
 `":)"...     \ ... ...
 `{? + 1}     \ {}
-`@2130706433 \ @0
-`@(0 1)      \ @(0 0)
 ```
 
 One benefit to this is checking a value's type by comparing against its default value.
