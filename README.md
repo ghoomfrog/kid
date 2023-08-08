@@ -320,10 +320,10 @@ Newlines separate items, and lines with the same tab indentation belong to same 
 
 ## Blobs
 
-Blobs are global keys stored in disk (alongside memory) in a program-local folder. They're suffixed with `!`.
+Blobs are global keys stored in disk (alongside memory) in a program-local folder. They're prefixed by `@`.
 
 ```kid
-todos! =
+@todos =
 	"do stuff"
 	"do more stuff"
 	"pet self"
@@ -331,7 +331,7 @@ todos! =
 
 ...
 
-todos!: 3 = "ok i think i'm good for today"
+@todos: 3 = "ok i think i'm good for today"
 ```
 
 The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended.
@@ -368,32 +368,32 @@ Here, `plusOne` is assigned a function that returns `? + 1`.
 
 `?` expands to the argument. It defaults to null if no argument was passed.
 
-Calling a function is done using the prefix operator `/` with the function's name, followed by an optional argument.
+Calling a function is done using the prefix operator `!` with the function's name, followed by an optional argument.
 
 ```kid
-/plusOne 99
+!plusOne 99
 ```
 
-`/` has a lower precedence than spaces, so we can do this:
+`!` has a lower precedence than spaces, so we can do this:
 
 ```kid
-/duplicate ditto 20
+!duplicate ditto 20
 ```
 
-`ditto 20` is a list passed as an argument to `duplicate`. Notice how I didn't need to do `/duplicate(ditto 20)`.
+`ditto 20` is a list passed as an argument to `duplicate`. Notice how I didn't need to do `!duplicate(ditto 20)`.
 
 Inline calls are interpreted from right to left.
 
 To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `=>`. This is *the* coroutine feature.
 
-Using the prefix operator `/` on keys of non-function values returns them.
+Using `!` on keys of non-function values returns them.
 
 ```kid
 n = 100
-/n
+!n
 ```
 
-Here, `/n` simply returns `100` even with an argument.
+Here, `!n` simply returns `100` even with an argument.
 
 ## Time
 
