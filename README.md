@@ -302,9 +302,7 @@ $female -> ">:o" |> ":|"
 
 If `$female` is truthy, this returns `">:o"`. Otherwise, it returns `":|"`.
 
-These operators have lower precedences than newlines.
-
-Left operands of `->` and `|>` are optional, defaulting to null.
+These operators have lower precedences than newlines, and their left operands are optional, defaulting to null.
 
 ## Blocks
 
@@ -352,9 +350,7 @@ $female ->>
 
 While `$female` is truthy, this increments `nLooks` by `1`.
 
-The operator lazily evaluate the right operand.
-
-Left operands of `->>` and `|>>` are optional, defaulting to null. 
+The operators lazily evaluate the right operand, and their left operands are optional, defaulting to null. 
 
 ## Functions
 
