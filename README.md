@@ -31,10 +31,8 @@ They're written as an ellipsis because they can be used as empty expressions (li
 Quantities in Kid are unsigned integers that are dynamically sized (with an 8-bit minimum).
 
 ```kid
--123
+123
 ```
-
-`+123` is not what you think it is in Kid. The prefix operator `+` is used for something completely different. It's redundant to put `+` in front of an already positive numeral anyway, so I used that chance to use it for a more useful feature. You'll learn about it later in this guide.
 
 ## Strings
 
