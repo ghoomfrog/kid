@@ -446,10 +446,10 @@ A special case of addresses is `0` and `0 0` which don't do anything with data.
 
 ## Modules
 
-All modules are global and are stored in one folder. The prefix operator `+` is how we include modules by their names.
+All modules are global and are stored in one folder. The prefix operator `.` is how we include modules by their names.
 
 ```kid
-+ discord
+.discord
 ```
 
 Module names are not the same as their filenames. Just like keys, module names can be of any type (`discord` here is of course just a string). But just like blobs, they also have length limits.
