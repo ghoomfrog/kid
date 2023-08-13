@@ -36,24 +36,6 @@ Integers in Kid are unsigned and dynamically sized (with an 8-bit minimum).
 
 `+123` is not what you think it is in Kid. The prefix operator `+` is used for something completely different. It's redundant to put `+` in front of an already positive numeral anyway, so I used that chance to use it for a more useful feature. You'll learn about it later in this guide.
 
-## Groups
-
-Groups are expressions that have a higher precedence than their environment. They're enclosed in `()`.
-
-```kid
-1 + 1 - 2
-```
-
-This returns 0. If we want to prioritize `-`, we do this:
-
-```kid
-1 + (1 - 2)
-```
-
-Now, this returns 255.
-
-Of course, groups can be nested.
-
 ## Strings
 
 Strings are just lists of ASCII character integers. You'll learn more about lists in the [next section](#spaces).
@@ -83,7 +65,7 @@ Escape sequences only apply inside quoted strings.
 * `\\` — `\`
 * `\'` — `'`
 * `\"` — `"`
-* `\u(N)` — the unicode character with the code as the integer numeral `N`
+* `\uN/` — the unicode character with the code as the (decimal) integer numeral `N`
 * `\0` — NUL
 * `\t` — TAB
 * `\n` — LF
@@ -153,9 +135,16 @@ Following that logic, this is how to construct an empty list:
 Let's consider two keyed spaces:
 
 ```kid
-integers = ( 43 21 65 )
-numbers = ( 198 777 )
+integers =
+	43
+	21
+	65
+numbers =
+	198
+	777
 ```
+
+You'll learn more about using tabs [later](#blocks).
 
 We can access a space's number of items—its length—by prefixing its name by `%`.
 
@@ -168,7 +157,10 @@ This returns 3. If this operator is used on nulls, it returns 0. Otherwise, if i
 We can access keys of outside spaces using the binary operator `#`:
 
 ```kid
-numbers = ( 198 777 integers#1 )
+numbers =
+	198
+	777
+	integers#1
 ```
 
 When accessing keys, the ones in the same space take priority over the ones outside.
@@ -176,13 +168,19 @@ When accessing keys, the ones in the same space take priority over the ones outs
 To delete a key, we just set it to null, which will decrement the space's length.
 
 ```kid
-numbers = ( 198 777 21 1=... )
+numbers =
+	198
+	777
+	21
+	1=...
 ```
 
 This cancels out to:
 
 ```kid
-numbers = ( 198 21 )
+numbers =
+	198
+	21
 ```
 
 Now, indices have been shifted and `21` is assigned to the index `1` instead of `2`.
@@ -195,14 +193,16 @@ The binary operator `:` allows us to append an expression at the end of a space'
 numbers: 20
 ```
 
-Now, `numbers` is `( 198 21 20 )`.
+Now, `numbers` is `198 21 20`.
 
 Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
 
 If we omit keys from assignments, the space returns the item instead of itself.
 
 ```kid
-numbers = ( 198 =20 )
+numbers =
+	198
+	=20
 ```
 
 Here, `numbers` is `20`, not a space.
@@ -420,15 +420,21 @@ Asynchronous blocks always return null.
 We can send a list of integers as data to an IP-identified network or computer using the binary operator `<~`.
 
 ```kid
-2130706433 <~ (21 43 65)
-(1 0) <~ (21 43 65)
+2130706433 <~
+	21
+	43
+	65
+1 0 <~
+	21
+	43
+	65
 ```
 
 The first line uses an IPv4 address, and the second one uses an IPv6 one.
 
 `2130706433` is the raw integer that is the IPv4 address 127.0.0.1.
 
-Since integers are 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses. `(0 1)` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `1` corresponds to the least significant half of the address (0000:0000:0000:0001), and the second item `0` corresponds to the most significant half (0000:0000:0000:0000).
+Since integers are 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses. `0 1` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `1` corresponds to the least significant half of the address (0000:0000:0000:0001), and the second item `0` corresponds to the most significant half (0000:0000:0000:0000).
 
 We can also assign an expression to be lazily evaluated on incoming data using the binary operator `~>`:
 
@@ -436,7 +442,7 @@ We can also assign an expression to be lazily evaluated on incoming data using t
 2130706433 ~> !doSomethingWith ?
 ```
 
-A special case of addresses is `0` and `(0 0)` which don't do anything with data.
+A special case of addresses is `0` and `0 0` which don't do anything with data.
 
 ## Modules
 
