@@ -28,7 +28,7 @@ They're written as an ellipsis because they can be used as empty expressions (li
 
 ## Integers
 
-Integers in Kid are dynamically sized (with an 8-bit minimum) and dynamically signed.
+Integers in Kid are signed and dynamically sized (with an 8-bit minimum).
 
 ```kid
 -123
@@ -226,7 +226,7 @@ Spaces are assigned and passed by reference.
 - `$x >> $y` (right arithmetic shift)
 - `$x >>> $y` (right logical shift)
 
-Nulls are treated as 0 in numeric operations.
+In numeric operations, nulls are treated as 0, and spaces.
 
 ### Relational Operators
 
