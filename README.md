@@ -36,6 +36,24 @@ Integers in Kid are unsigned and dynamically sized (with an 8-bit minimum).
 
 `+123` is not what you think it is in Kid. The prefix operator `+` is used for something completely different. It's redundant to put `+` in front of an already positive numeral anyway, so I used that chance to use it for a more useful feature. You'll learn about it later in this guide.
 
+## Groups
+
+Groups are expressions that have a higher precedence than their environment. They're enclosed in `()`.
+
+```kid
+1 + 1 - 2
+```
+
+This returns 0. If we want to prioritize `-`, we do this:
+
+```kid
+1 + (1 - 2)
+```
+
+Now, this returns 255.
+
+Of course, groups can be nested.
+
 ## Strings
 
 Strings are just lists of ASCII character integers. You'll learn more about lists in the [next section](#spaces).
