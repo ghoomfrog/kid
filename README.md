@@ -204,7 +204,7 @@ otherQuantities =
 	198
 	=20
 ```
-s
+
 Here, `otherQuantities` is `20`, not a space.
 
 Spaces are assigned and passed by reference.
