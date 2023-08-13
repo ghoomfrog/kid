@@ -56,7 +56,7 @@ Of course, groups can be nested.
 
 ## Strings
 
-Strings are just lists of Unicode character integers. You'll learn more about lists in the [next section](#spaces).
+Strings are just lists of ASCII character integers. You'll learn more about lists in the [next section](#spaces).
 
 ```kid
 ":)"
@@ -64,13 +64,15 @@ Strings are just lists of Unicode character integers. You'll learn more about li
 
 Single quotation marks are not allowed: ~~`':('`~~. It's so relieving to not have to worry about two quotation mark types, isn't it? I chose `"` because apostrophes are more common than double quotes in English: contractions are more common than quoting.
 
-Kid supports syntactic sugar for letter strings: ones containing letters in any Unicode-supported language.
+Kid supports syntactic sugar for letter strings: ones containing ASCII letters.
 
 ```
 ghoom
 ```
 
 This is equivalent to `"ghoom"`.
+
+Letter strings are case-sensitive.
 
 Underscores (`_`) are excluded for simplicity, and digits are excluded to improve readability and distinguishability from numerals.
 
