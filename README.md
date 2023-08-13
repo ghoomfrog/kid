@@ -224,10 +224,8 @@ All of the following operators have equal precedence.
 - `$x | $y` (bitwise OR)
 - `$x ^ $y` (bitwise XOR)
 - `$x & $y` (bitwise AND)
-- `$x << $y` (left arithmetic shift)
-- `$x <<< $y` (left logical shift)
-- `$x >> $y` (right arithmetic shift)
-- `$x >>> $y` (right logical shift)
+- `$x << $y` (left logical shift)
+- `$x >> $y` (right logical shift)
 
 In numeric operations, nulls are treated as 0, and spaces are treated as lists of arbitrary-precision integer fragments.
 
