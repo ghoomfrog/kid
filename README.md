@@ -38,7 +38,7 @@ Quantities in Kid are unsigned integers that are dynamically sized (with an 8-bi
 
 ## Strings
 
-Strings are just lists of ASCII character quantities. You'll learn more about lists in the [next section](#spaces).
+Strings are just lists of Unicode character quantities. You'll learn more about lists in the [next section](#spaces).
 
 ```kid
 ":)"
