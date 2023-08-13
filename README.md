@@ -62,15 +62,15 @@ Underscores (`_`) are excluded for simplicity, and digits are excluded to improv
 
 Escape sequences only apply inside quoted strings.
 
-* `\\` — `\`
-* `\'` — `'`
-* `\"` — `"`
-* `\uN/` — the unicode character with the code as the (decimal) integer numeral `N`
-* `\0` — NUL
-* `\t` — TAB
-* `\n` — LF
-* `\r` — CR
-* `\e` — ESC
+- `\\` — `\`
+- `\'` — `'`
+- `\"` — `"`
+- `\uN/` — the unicode character with the code as the (decimal) integer numeral `N`
+- `\0` — NUL
+- `\t` — TAB
+- `\n` — LF
+- `\r` — CR
+- `\e` — ESC
 
 ## Spaces
 
@@ -385,15 +385,15 @@ Functions are assigned and passed by reference.
 
 ## Time
 
-`%%` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
+`***` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
 
 ```kid
 wait = {
-	start    = %%
+	start    = ***
 	duration = ?
 	end      = $start + $duration
 	
-	getOngoing = {%% - $start < $duration}
+	getOngoing = {*** - $start < $duration}
 	getOngoing ->> ...
 }
 ```
