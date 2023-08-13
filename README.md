@@ -26,9 +26,9 @@ Nulls are the no-values: they denote that there is no value.
 
 They're written as an ellipsis because they can be used as empty expressions (like `pass` in python) or placeholders.
 
-## Integers
+## Quantities
 
-Integers in Kid are unsigned and dynamically sized (with an 8-bit minimum).
+Quantities in Kid are unsigned integers that are dynamically sized (with an 8-bit minimum).
 
 ```kid
 -123
@@ -38,7 +38,7 @@ Integers in Kid are unsigned and dynamically sized (with an 8-bit minimum).
 
 ## Strings
 
-Strings are just lists of ASCII character integers. You'll learn more about lists in the [next section](#spaces).
+Strings are just lists of ASCII character quantities. You'll learn more about lists in the [next section](#spaces).
 
 ```kid
 ":)"
@@ -96,7 +96,7 @@ We can also redefine keys:
 smiley=":)" score=123 percentage=45 smiley=":^)"
 ```
 
-Keys alongside `=` can be omitted to automatically assign items to position-based integer keys, called indices.
+Keys alongside `=` can be omitted to automatically assign items to position-based quantity keys, called indices.
 
 ```kid
 ":)" score=123 45
@@ -135,11 +135,11 @@ Following that logic, this is how to construct an empty list:
 Let's consider two keyed spaces:
 
 ```kid
-integers =
+quantities =
 	43
 	21
 	65
-numbers =
+otherQuantities =
 	198
 	777
 ```
@@ -149,7 +149,7 @@ You'll learn more about using tabs [later](#blocks).
 We can access a space's number of items—its length—by prefixing its name by `%`.
 
 ```kid
-%integers
+%quantities
 ```
 
 This returns 3. If this operator is used on nulls, it returns 0. Otherwise, if it's used on other non-space values, it returns 1.
@@ -157,10 +157,10 @@ This returns 3. If this operator is used on nulls, it returns 0. Otherwise, if i
 We can access keys of outside spaces using the binary operator `#`:
 
 ```kid
-numbers =
+otherQuantities =
 	198
 	777
-	integers#1
+	quantities#1
 ```
 
 When accessing keys, the ones in the same space take priority over the ones outside.
@@ -168,7 +168,7 @@ When accessing keys, the ones in the same space take priority over the ones outs
 To delete a key, we just set it to null, which will decrement the space's length.
 
 ```kid
-numbers =
+otherQuantities =
 	198
 	777
 	21
@@ -178,7 +178,7 @@ numbers =
 This cancels out to:
 
 ```kid
-numbers =
+otherQuantities =
 	198
 	21
 ```
@@ -190,22 +190,22 @@ If `#` is used with non-space values, the key `0` refers to the value, and other
 The binary operator `:` allows us to append an expression at the end of a space's constructor.
 
 ```kid
-numbers: 20
+otherQuantities: 20
 ```
 
-Now, `numbers` is `198 21 20`.
+Now, `otherQuantities` is `198 21 20`.
 
 Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
 
 If we omit keys from assignments, the space returns the item instead of itself.
 
 ```kid
-numbers =
+otherQuantities =
 	198
 	=20
 ```
-
-Here, `numbers` is `20`, not a space.
+s
+Here, `otherQuantities` is `20`, not a space.
 
 Spaces are assigned and passed by reference.
 
@@ -227,7 +227,7 @@ All of the following operators have equal precedence.
 - `$x << $y` (left logical shift)
 - `$x >> $y` (right logical shift)
 
-In numeric operations, nulls are treated as 0, and spaces are treated as lists of arbitrary-precision integer fragments.
+In numeric operations, nulls are treated as 0, and spaces are treated as lists of arbitrary-precision quantity fragments.
 
 Overflow in numberic operations is dealt with by wrapping around.
 
@@ -385,7 +385,7 @@ Functions are assigned and passed by reference.
 
 ## Time
 
-`%%` is a millisecond-level Unix timestamp integer referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
+`%%` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
 
 ```kid
 wait = {
@@ -417,7 +417,7 @@ Asynchronous blocks always return null.
 
 ## Networking
 
-We can send a list of integers as data to an IP-identified network or computer using the binary operator `<~`.
+We can send a list of quantities as data to an IP-identified network or computer using the binary operator `<~`.
 
 ```kid
 2130706433 <~
@@ -432,9 +432,9 @@ We can send a list of integers as data to an IP-identified network or computer u
 
 The first line uses an IPv4 address, and the second one uses an IPv6 one.
 
-`2130706433` is the raw integer that is the IPv4 address 127.0.0.1.
+`2130706433` is the raw quantity that is the IPv4 address 127.0.0.1.
 
-Since integers are 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two integers is used to represent IPv6 addresses. `0 1` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `1` corresponds to the least significant half of the address (0000:0000:0000:0001), and the second item `0` corresponds to the most significant half (0000:0000:0000:0000).
+Since quantities are 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two quantities is used to represent IPv6 addresses. `0 1` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `1` corresponds to the least significant half of the address (0000:0000:0000:0001), and the second item `0` corresponds to the most significant half (0000:0000:0000:0000).
 
 We can also assign an expression to be lazily evaluated on incoming data using the binary operator `~>`:
 
