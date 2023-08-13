@@ -28,23 +28,13 @@ They're written as an ellipsis because they can be used as empty expressions (li
 
 ## Integers
 
-Integers in Kid are 64-bit and are dynamically signed.
+Integers in Kid are dynamically sized (with an 8-bit minimum) and dynamically signed.
 
 ```kid
 -123
 ```
 
 `+123` is not what you think it is in Kid. The prefix operator `+` is used for something completely different. It's redundant to put `+` in front of an already positive numeral anyway, so I used that chance to use it for a more useful feature. You'll learn about it later in this guide.
-
-## Floating-Point Numbers
-
-Floating-point numbers, or floats, in Kid are 64-bit.
-
-```kid
-4.56
-```
-
-`4.0` and `0.56` can't be shortened to `4.` and `.56`. This is to reduce confusion with adjacent syntax that uses `.` like `...`.
 
 ## Groups
 
@@ -103,7 +93,7 @@ Escape sequences only apply inside quoted strings.
 Spaces are associative arrays that can store mixed types of keys and items.
 
 ```kid
-smiley=":)" score=123 ratio=4.56
+smiley=":)" score=123 percentage=45
 ```
 
 Left operands of `=` are keys, and right ones are items assigned to those keys. Keys can be of any type. As you can see, item separation is implicit and is not marked by anything.
@@ -111,7 +101,7 @@ Left operands of `=` are keys, and right ones are items assigned to those keys. 
 Items in the same space can access each other using the prefix operator `$`:
 
 ```kid
-smiley=":)" score=123 ratio=4.56 otherScore=$score
+smiley=":)" score=123 percentage=45 otherScore=$score
 ```
 
 Here, `$score` expands to `123` and is then assigned to the key `otherScore`.
@@ -119,19 +109,19 @@ Here, `$score` expands to `123` and is then assigned to the key `otherScore`.
 We can also redefine keys:
 
 ```kid
-smiley=":)" score=123 ratio=4.56 smiley=":^)"
+smiley=":)" score=123 percentage=45 smiley=":^)"
 ```
 
 Keys alongside `=` can be omitted to automatically assign items to position-based integer keys, called indices.
 
 ```kid
-":)" score=123 4.56
+":)" score=123 45
 ```
 
-Now, the item `":)"` is assigned to the index `0`, and `4.56` to `1`. It's equivalent to this:
+Now, the item `":)"` is assigned to the index `0`, and `45` to `1`. It's equivalent to this:
 
 ```kid
-0=":)" score=123 1=4.56
+0=":)" score=123 1=45
 ```
 
 Accessing undefined keys returns null.
@@ -162,7 +152,7 @@ Let's consider two keyed spaces:
 
 ```kid
 integers = ( 43 21 65 )
-numbers = ( 9.8 777 )
+numbers = ( 198 777 )
 ```
 
 We can access a space's number of items—its length—by prefixing its name by `%`.
@@ -176,7 +166,7 @@ This returns 3. If this operator is used on nulls, it returns 0. Otherwise, if i
 We can access keys of outside spaces using the binary operator `#`:
 
 ```kid
-numbers = ( 9.8 777 integers#1 )
+numbers = ( 198 777 integers#1 )
 ```
 
 When accessing keys, the ones in the same space take priority over the ones outside.
@@ -184,13 +174,13 @@ When accessing keys, the ones in the same space take priority over the ones outs
 To delete a key, we just set it to null, which will decrement the space's length.
 
 ```kid
-numbers = ( 9.8 777 21 1=... )
+numbers = ( 198 777 21 1=... )
 ```
 
 This cancels out to:
 
 ```kid
-numbers = ( 9.8 21 )
+numbers = ( 198 21 )
 ```
 
 Now, indices have been shifted and `21` is assigned to the index `1` instead of `2`.
@@ -203,14 +193,14 @@ The binary operator `:` allows us to append an expression at the end of a space'
 numbers: 20
 ```
 
-Now, `numbers` is `( 9.8 21 20 )`.
+Now, `numbers` is `( 198 21 20 )`.
 
 Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
 
 If we omit keys from assignments, the space returns the item instead of itself.
 
 ```kid
-numbers = ( 9.8 =20 )
+numbers = ( 198 =20 )
 ```
 
 Here, `numbers` is `20`, not a space.
@@ -256,7 +246,6 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 ```kid
 `...         \ ...
 `123         \ 0
-`4.56        \ 0.0
 `":)"        \ ""
 `":)"...     \ ... ...
 `{? + 1}     \ {}
@@ -309,7 +298,7 @@ Blocks are syntactic sugar that uses newlines and tab indentation to hierarchica
 ```kid
 $female ->
 	face = ">:o"
-	interest = 1.0
+	interest = 100
 ```
 
 Newlines separate items, and lines with the same tab indentation belong to same block.
