@@ -227,7 +227,7 @@ Spaces are assigned and passed by reference.
 
 In numeric operations, nulls are treated as 0, and spaces are treated as lists of arbitrary-precision integer fragments.
 
-Overflow in numberic operations is dealt with by wrapping around
+Overflow in numberic operations is dealt with by wrapping around.
 
 ### Relational Operators
 
