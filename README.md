@@ -219,11 +219,11 @@ All of the following operators have equal precedence.
 - `$x - $y`
 - `$x * $y`
 - `$x / $y`
-- `$x % $y` (division remainder)
+- `$x % $y`
 - `~$x` (bitwise inversion)
-- `$x | $y` (bitwise OR)
+- `$x | $y`
 - `$x ^ $y` (bitwise XOR)
-- `$x & $y` (bitwise AND)
+- `$x & $y`
 - `$x << $y` (left logical shift)
 - `$x >> $y` (right logical shift)
 
