@@ -36,24 +36,6 @@ Integers in Kid are unsigned and dynamically sized (with an 8-bit minimum).
 
 `+123` is not what you think it is in Kid. The prefix operator `+` is used for something completely different. It's redundant to put `+` in front of an already positive numeral anyway, so I used that chance to use it for a more useful feature. You'll learn about it later in this guide.
 
-## Groups
-
-Groups are expressions that have a higher precedence than their environment. They're enclosed in `()`.
-
-```kid
-1 + 1 * 2
-```
-
-This returns 3 because `*` has a higher precedence than `+`. If we want to prioritize `+`, we do this:
-
-```kid
-(1 + 1) * 2
-```
-
-Now, this returns 4.
-
-Of course, groups can be nested.
-
 ## Strings
 
 Strings are just lists of ASCII character integers. You'll learn more about lists in the [next section](#spaces).
@@ -211,6 +193,8 @@ Spaces are assigned and passed by reference.
 
 ## Miscellaneous Operators
 
+All of the following operators have equal precedence.
+
 ### Numeric Operators
 
 - `$x + $y`
@@ -239,8 +223,6 @@ These operators return the right operand if it's greater, and null otherwise.
 - `$x < $y`
 
 Nulls are treated as 0 in `<`.
-
-These operators have lower precedences than the numeric ones above.
 
 ## Default Values
 
@@ -292,7 +274,7 @@ female -> ">:o" |> ":|"
 
 If `$female` is truthy, this returns `">:o"`. Otherwise, it returns `":|"`.
 
-These operators have lower precedences than newlines, and their left operands are optional, defaulting to null.
+The left operands of these operators are optional, defaulting to null.
 
 ## Blocks
 
@@ -362,7 +344,7 @@ Calling a function is done using the prefix operator `!` with the function's nam
 !plusOne 99
 ```
 
-`!` has a lower precedence than spaces, so we can do this:
+`!` has a lower precedence than space constructors, so we can do this:
 
 ```kid
 !duplicate ditto 20
