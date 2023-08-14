@@ -353,7 +353,7 @@ Here, `plusOne` is assigned a function that returns `## + 1`.
 
 `##` expands to the argument. It defaults to null if no argument was passed.
 
-Functions can access neighboring keys of the keys they're assigned to.
+Functions can access their key and its neighboring keys.
 
 Calling a function is done using the prefix operator `!` with the function's name, followed by an optional argument.
 
