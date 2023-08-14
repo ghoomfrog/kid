@@ -138,13 +138,13 @@ And, of course, spaces can contain other spaces.
 
 ```kid
 parent =
-		grandchild
 	lara=child
 	anotherChild
+		grandchild
 		tim=anotherGrandchild
 ```
 
-You'll learn more about using tabs [later](#blocks).
+You'll learn more about using tabs [later](#blocks). Here, `parent` contains three items: `lara=child`, `anotherChild` and `grandchild tim=anotherGrandchild`.
 
 Let's consider two keyed spaces:
 
