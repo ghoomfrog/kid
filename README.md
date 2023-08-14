@@ -417,9 +417,7 @@ We can push a value onto the reception stack of an IP-identified network or comp
 1 <~~ {$n + 1}
 ```
 
-The first operator accepts an IPv4 address, and the second one uses an IPv6 one.
-
-`2130706433` is the raw quantity that is the IPv4 address 127.0.0.1, and `1` is the raw quantity that is the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001.
+The first operator uses IPv4, and the second one uses IPv6. Thhe left operand is the raw address that corresponds to the IP version.
 
 We can also pop a value from the reception stack using the suffix operator `?`:
 
