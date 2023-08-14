@@ -221,9 +221,7 @@ All of the following operators have equal precedence.
 - `$x << $y` (left logical shift)
 - `$x >> $y` (right logical shift)
 
-In numeric operations, nulls are treated as 0, and spaces are treated as quantities where list items are quantity fragments.
-
-Overflow in numberic operations is dealt with by wrapping around.
+In numeric operations, nulls are treated as 0, and spaces are treated as their first quantity item.
 
 ### Relational Operators
 
