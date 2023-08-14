@@ -59,7 +59,7 @@ Escape sequences only apply inside quoted strings.
 - `\\` — `\`
 - `\'` — `'`
 - `\"` — `"`
-- `\uN/` — the unicode character with the code as the (decimal) integer numeral `N`
+- `\(N)` — the unicode character with the code as the (decimal) integer numeral `N`
 - `\0` — NUL
 - `\t` — TAB
 - `\n` — LF
