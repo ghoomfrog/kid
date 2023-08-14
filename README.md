@@ -329,7 +329,7 @@ getFemale ->>
 
 Just like conditional operators, the left operand of this operator is a key, and the right one is a value. But here, a function is assigned to the key. So in every iteration of the loop, it gets called.
 
-While `!getFemale` is truthy, this increments `nLooks` by `1`.
+So while `!getFemale` is truthy, this increments `nLooks` by `1`.
 
 The operator's left operand is optional, defaulting to null. 
 
