@@ -311,7 +311,7 @@ $female ->
 	interest = 100
 ```
 
-Newlines separate items, and lines with the same tab indentation belong to same block.
+Newlines into a deeper indentation introduce a space, and newlines into the same indentation separate items.
 
 ## Blobs
 
