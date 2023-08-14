@@ -222,7 +222,7 @@ All of the following operators have equal precedence.
 - `$x + $y`
 - `$x - $y`
 - `$x * $y`
-- `$x / $y` (a list of the quotient and remainder)
+- `$x / $y` (a space where the quotient is at `0` and the remainder is at `remainder`)
 - `~$x` (bitwise inversion)
 - `$x | $y`
 - `$x ^ $y` (bitwise XOR)
@@ -350,8 +350,6 @@ plusOne = {$n + 1}
 ```
 
 Here, `plusOne` is assigned a function that returns `$n + 1`.
-
-`##` expands to the argument. It defaults to null if no argument was passed.
 
 Functions can access their keys, their neighboring keys in the space they were defined in, and their neighboring keys in the space they get called from.
 
