@@ -79,7 +79,7 @@ Escape sequences only apply inside quoted strings.
 Spaces are associative arrays that can store mixed types of keys and items.
 
 ```kid
-smiley=":)" score=123 percentage=45
+smiley=":)" score=123 percentage=45.00
 ```
 
 Left operands of `=` are keys, and right ones are items assigned to those keys. Keys can be of any type. As you can see, item separation is implicit and is not marked by anything.
@@ -87,7 +87,7 @@ Left operands of `=` are keys, and right ones are items assigned to those keys. 
 Items in the same space can access each other using the prefix operator `$`:
 
 ```kid
-smiley=":)" score=123 percentage=45 otherScore=$score
+smiley=":)" score=123 percentage=45.00 otherScore=$score
 ```
 
 Here, `$score` expands to `123` and is then assigned to the key `otherScore`.
@@ -95,19 +95,19 @@ Here, `$score` expands to `123` and is then assigned to the key `otherScore`.
 We can also redefine keys:
 
 ```kid
-smiley=":)" score=123 percentage=45 smiley=":^)"
+smiley=":)" score=123 percentage=45.00 smiley=":^)"
 ```
 
 Keys alongside `=` can be omitted to automatically assign items to position-based quantity keys, called indices.
 
 ```kid
-":)" score=123 45
+":)" score=123 45.00
 ```
 
-Now, the item `":)"` is assigned to the index `0`, and `45` to `1`. It's equivalent to this:
+Now, the item `":)"` is assigned to the index `0`, and `45.00` to `1`. It's equivalent to this:
 
 ```kid
-0=":)" score=123 1=45
+0=":)" score=123 1=45.00
 ```
 
 Accessing undefined keys returns null.
