@@ -293,7 +293,7 @@ The left operands of these operators are optional, defaulting to null.
 
 ## Blocks
 
-Blocks are syntactic sugar that uses newlines and tab indentation to hierarchically group spaces.
+Blocks are syntactic sugar that uses newlines and tabs to hierarchically group spaces.
 
 ```kid
 $female ->
