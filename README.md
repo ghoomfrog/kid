@@ -134,6 +134,18 @@ Following that logic, this is how to construct an empty list:
 ... ...
 ```
 
+And, of course, spaces can contain other spaces.
+
+```kid
+parent =
+		grandchild
+	child
+	anotherChild
+		anotherGrandchild
+```
+
+You'll learn more about using tabs [later](#blocks).
+
 Let's consider two keyed spaces:
 
 ```kid
@@ -145,8 +157,6 @@ otherQuantities =
 	198
 	777
 ```
-
-You'll learn more about using tabs [later](#blocks).
 
 We can access a space's number of items—its length—by prefixing its name by `%`.
 
