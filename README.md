@@ -262,7 +262,7 @@ Kid features two types of inline conditionals. Both of them consider nulls to be
 The first is the if-then conditional:
 
 ```kid
-female -> ">:o"
+$female -> ">:o"
 ```
 
 If `$female` is truthy (not null), this returns `">:o"`. Otherwise, it returns `$female`.
@@ -270,21 +270,19 @@ If `$female` is truthy (not null), this returns `">:o"`. Otherwise, it returns `
 The second type is the unless-then conditional:
 
 ```kid
-female |> ":|"
+$female |> ":|"
 ```
 
 If `$female` is null, this returns `":|"`. Otherwise, it returns `$female`.
 
 And so `|>` can be used to specify a fallback in case a value is null.
 
-As you can see, the left operand of both operators is a key, and the right one is a value.
-
 Both operators lazily evaluate the right operand.
 
 `->` and `|>` can be combined to make an if-else combination:
 
 ```kid
-female -> ">:o" |> ":|"
+$female -> ">:o" |> ":|"
 ```
 
 If `$female` is truthy, this returns `">:o"`. Otherwise, it returns `":|"`.
@@ -331,13 +329,13 @@ Kid only features While and Until loops at its core, using the respective binary
 
 ```kid
 nLooks = 0
-getFemale ->>
+{$female} ->>
 	: nLooks = nLooks + 1
 ```
 
-Just like conditional operators, the left operand of this operator is a key, and the right one is a value. But here, a function is assigned to the key. So in every iteration of the loop, it gets called.
+The left operand is a function that gets called in every iteration.
 
-So while `!getFemale` is truthy, this increments `nLooks` by `1`.
+So while the return value of `{$female}` is truthy, this increments `nLooks` by `1`.
 
 The operators lazily evaluates the right operand, and its left operand is optional, defaulting to null. 
 
