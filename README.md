@@ -28,7 +28,7 @@ They're written as an ellipsis because they can be used as empty expressions (li
 
 ## Quantities
 
-Quantities in Kid are unsigned integers that are dynamically sized (with an 8-bit minimum).
+Quantities in Kid are unsigned integers that are dynamically sized (with an 1-byte minimum).
 
 ```kid
 123
