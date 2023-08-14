@@ -377,15 +377,15 @@ Functions are assigned and passed by reference.
 
 ## Time
 
-`?` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
+`**` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
 
 ```kid
 \ arg: duration
 wait = {
-	start    = ?
+	start    = **
 	end      = $start + $duration
 	
-	getOngoing = {? - $start < $duration}
+	getOngoing = {** - $start < $duration}
 	getOngoing ->> ...
 }
 ```
