@@ -213,6 +213,25 @@ Here, `otherQuantities` is `20`, not a space.
 
 Spaces are assigned and passed by reference.
 
+Space constructors are evaluated lazily, only when accessed. To force-evaluate a space constructor even after its initial evaluation, we use the suffix operator `!`, essentially turning the constructor into a function.
+
+```kid
+plusOne = args#0 + 1
+args = 99
+plusOne!
+```
+
+To return from a space while saving its constructor evaluation position, we use the prefix operator `=>`. This introduces coroutines to the language.
+
+Using `!` on a key with a non-space item returns that item.
+
+```kid
+n = 100
+n!
+```
+
+Here, `n!` simply returns `100`.
+
 ## Miscellaneous Operators
 
 All of the following operators have equal precedence.
@@ -331,8 +350,8 @@ Kid only features While and Until loops at its core, using the respective binary
 
 ```kid
 nLooks = 0
-{$female} ->>
-	: nLooks = nLooks + 1
+{$female} ->> :
+	nLooks = nLooks + 1
 ```
 
 The left operand is a function that gets called in every iteration.
@@ -340,38 +359,6 @@ The left operand is a function that gets called in every iteration.
 So while the return value of `{$female}` is truthy, this increments `nLooks` by `1`.
 
 The operators lazily evaluates the right operand, and its left operand is optional, defaulting to null. 
-
-## Functions
-
-All functions in Kid are scoped coroutines with one optional parameter and one return value which is null by default.
-
-```kid
-plusOne = {args#0 + 1}
-```
-
-Functions can access their keys, their neighboring keys in the space they were defined in, and their neighboring keys in the space they get called from.
-
-Here, `plusOne` is assigned a function that returns `args#0 + 1`.
-
-Calling a function is done using the suffix operator `!` with the function's name.
-
-```kid
-args = 99
-plusOne!
-```
-
-To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `=>`. This is *the* coroutine feature.
-
-Using `!` on keys of non-function values returns them.
-
-```kid
-n = 100
-n!
-```
-
-Here, `n!` simply returns `100`.
-
-Functions are assigned and passed by reference.
 
 ## Time
 
@@ -390,15 +377,15 @@ wait = {
 
 ## Asynchronous Evaluation
 
-Expressions can be evaluated asynchronously if they're enclosed in `[]`. 
+Expressions can be evaluated asynchronously if they're enclosed in `()`.
 
 ```kid
 a = 1
-[
+(
 	duration = 1000
 	wait!
 	c = 3
-]
+)
 b = 2
 ```
 
