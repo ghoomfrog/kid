@@ -197,11 +197,13 @@ otherQuantities: 20
 
 Now, `otherQuantities` is `198 21 20`.
 
+Using `:` on a non-space value turns it into a list containing the value and the appended expression.
+
 Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
 
 Using `:` with an undefined key automatically assigns an empty space to it.
 
-If we omit keys from assignments, the space returns the item instead of itself.
+If we omit keys from assignments, the space returns the item instead of itself when evaluated.
 
 ```kid
 otherQuantities =
@@ -209,7 +211,7 @@ otherQuantities =
 	=20
 ```
 
-Here, `otherQuantities` is `20`, not a space.
+Here, `otherQuantities` is assigned `20`.
 
 Spaces are assigned and passed by reference.
 
