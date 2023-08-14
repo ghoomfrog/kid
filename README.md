@@ -269,7 +269,6 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 `123         \ 0
 `":)"        \ ""
 `":)"...     \ ... ...
-`{## + 1}    \ {}
 ```
 
 One benefit to this is checking a value's type by comparing against its default value.
@@ -350,13 +349,14 @@ Kid only features While and Until loops at its core, using the respective binary
 
 ```kid
 nLooks = 0
-{$female} ->> :
+getFemale = $female...
+getFemale ->> :
 	nLooks = nLooks + 1
 ```
 
 The left operand is a function that gets called in every iteration.
 
-So while the return value of `{$female}` is truthy, this increments `nLooks` by `1`.
+So while `getFemale!` is truthy, this increments `nLooks` by `1`.
 
 The operators lazily evaluates the right operand, and its left operand is optional, defaulting to null. 
 
@@ -366,13 +366,12 @@ The operators lazily evaluates the right operand, and its left operand is option
 
 ```kid
 \args: duration
-wait = {
+wait =
 	start    = **
 	end      = $start + $duration
 	
-	getOngoing = {** - $start < $duration}
+	getOngoing = ** - $start < $duration ...
 	getOngoing ->> ...
-}
 ```
 
 ## Asynchronous Evaluation
@@ -399,7 +398,7 @@ We can push a value onto the reception stack of an IP-identified network or comp
 
 ```kid
 2130706433 <~ "Hello!"
-1 <~~ {$n + 1}
+1 <~~ $n + 1 ...
 ```
 
 The first operator uses IPv4, and the second one uses IPv6. Thhe left operand is the raw address that corresponds to the IP version.
