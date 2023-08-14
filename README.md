@@ -34,6 +34,14 @@ Quantities in Kid are unsigned integers that are dynamically sized (with an 8-bi
 123
 ```
 
+Quantity literals can contain a single `.` as a readability enhancement.
+
+```kid
+100.00
+```
+
+This is equivalent to `10000`.
+
 ## Strings
 
 Strings are just lists of Unicode character quantities. You'll learn more about lists in the [next section](#spaces). Strings are enclosed in `"`.
