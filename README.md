@@ -199,6 +199,8 @@ Now, `otherQuantities` is `198 21 20`.
 
 Omitting the left operand of `:` evaluates the expression in the global space. The operator always returns null.
 
+Using `:` with an undefined key automatically assigns an empty space to it.
+
 If we omit keys from assignments, the space returns the item instead of itself.
 
 ```kid
