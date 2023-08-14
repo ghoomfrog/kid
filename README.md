@@ -346,17 +346,17 @@ The operators lazily evaluates the right operand, and its left operand is option
 All functions in Kid are scoped coroutines with one optional parameter and one return value which is null by default.
 
 ```kid
-plusOne = {$n + 1}
+plusOne = {args#0 + 1}
 ```
-
-Here, `plusOne` is assigned a function that returns `$n + 1`.
 
 Functions can access their keys, their neighboring keys in the space they were defined in, and their neighboring keys in the space they get called from.
 
-Calling a function is done using the suffix operator `!` with the function's name, followed by an optional argument.
+Here, `plusOne` is assigned a function that returns `args#0 + 1`.
+
+Calling a function is done using the suffix operator `!` with the function's name.
 
 ```kid
-n = 99
+args = 99
 plusOne!
 ```
 
@@ -378,7 +378,7 @@ Functions are assigned and passed by reference.
 `**` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
 
 ```kid
-\ arg: duration
+\args: duration
 wait = {
 	start    = **
 	end      = $start + $duration
