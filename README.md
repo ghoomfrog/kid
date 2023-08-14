@@ -319,7 +319,7 @@ Blobs are keys stored in disk in a program-local folder. They're prefixed by `@`
 @todos: 3 = "ok i think i'm good for today"
 ```
 
-The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended. And if `todos` was part of a space, that space will get loaded too even if it's no assigned to a blob.
+The next time the program runs, `todos` will be automatically in whatever state it was on before the program ended. And if `todos` was part of a space, that space will get loaded too even if it's not assigned to a blob.
 
 Setting a blob or its containing space to null deletes it from disk.
 
