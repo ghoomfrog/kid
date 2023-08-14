@@ -346,30 +346,21 @@ The operators lazily evaluates the right operand, and its left operand is option
 All functions in Kid are scoped coroutines with one optional parameter and one return value which is null by default.
 
 ```kid
-plusOne = {## + 1}
+plusOne = {$n + 1}
 ```
 
-Here, `plusOne` is assigned a function that returns `## + 1`.
+Here, `plusOne` is assigned a function that returns `$n + 1`.
 
 `##` expands to the argument. It defaults to null if no argument was passed.
 
-Functions can access their key and its neighboring keys.
+Functions can access their keys, their neighboring keys in the space they were defined in, and their neighboring keys in the space they get called from.
 
-Calling a function is done using the prefix operator `!` with the function's name, followed by an optional argument.
-
-```kid
-!plusOne 99
-```
-
-`!` has a lower precedence than space constructors, so we can do this:
+Calling a function is done using the suffix operator `!` with the function's name, followed by an optional argument.
 
 ```kid
-!duplicate ditto 20
+n = 99
+plusOne!
 ```
-
-`ditto 20` is a list passed as an argument to `duplicate`. Notice how I didn't need to do `!duplicate(ditto 20)`.
-
-Inline calls are interpreted from right to left.
 
 To return from a function without resetting its state: without making it start from the top the next time it's called, we use the prefix operator `=>`. This is *the* coroutine feature.
 
@@ -377,24 +368,24 @@ Using `!` on keys of non-function values returns them.
 
 ```kid
 n = 100
-!n
+n!
 ```
 
-Here, `!n` simply returns `100` even with an argument.
+Here, `n!` simply returns `100`.
 
 Functions are assigned and passed by reference.
 
 ## Time
 
-`??` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
+`?` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
 
 ```kid
+\ arg: duration
 wait = {
-	start    = ??
-	duration = ##
+	start    = ?
 	end      = $start + $duration
 	
-	getOngoing = {?? - $start < $duration}
+	getOngoing = {? - $start < $duration}
 	getOngoing ->> ...
 }
 ```
@@ -406,7 +397,8 @@ Expressions can be evaluated asynchronously if they're enclosed in `[]`.
 ```kid
 a = 1
 [
-	!wait 1000
+	duration = 1000
+	wait!
 	c = 3
 ]
 b = 2
@@ -418,27 +410,21 @@ Asynchronous blocks always return null.
 
 ## Networking
 
-We can send a list of quantities as data to an IP-identified network or computer using the binary operators `<~` and `<<~`.
+We can push a value onto the reception stack of an IP-identified network or computer using the binary operators `<~` and `<~~`.
 
 ```kid
-2130706433 <~
-	21
-	43
-	65
-1 <<~
-	21
-	43
-	65
+2130706433 <~ "Hello!"
+1 <~~ {$n + 1}
 ```
 
 The first operator accepts an IPv4 address, and the second one uses an IPv6 one.
 
 `2130706433` is the raw quantity that is the IPv4 address 127.0.0.1, and `1` is the raw quantity that is the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001.
 
-We can also assign an expression to be lazily evaluated on incoming data using the binary operator `~>`:
+We can also pop a value from the reception stack using the suffix operator `?`:
 
 ```kid
-2130706433 ~> !doSomethingWith ##
+2130706433?
 ```
 
 A special case of addresses is `0` which don't do anything with data.
