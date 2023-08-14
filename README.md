@@ -410,6 +410,8 @@ We can also pop a value from the reception stack using the suffix operator `?`:
 2130706433?
 ```
 
+If the stack is empty, this returns null.
+
 A special case of addresses is `0` which don't do anything with data.
 
 ## Modules
