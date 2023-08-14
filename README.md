@@ -203,7 +203,7 @@ Omitting the left operand of `:` evaluates the expression in the global space. T
 
 Using `:` with an undefined key automatically assigns an empty space to it.
 
-If we omit keys from assignments, the space returns the item instead of itself when evaluated.
+If we omit keys from assignments, the space immediately returns the item instead of itself when evaluated.
 
 ```kid
 otherQuantities =
@@ -213,7 +213,7 @@ otherQuantities =
 
 Here, `otherQuantities` is assigned `20`.
 
-Spaces are assigned and passed by reference.
+Omitting all operands of `=` force-returns the space itself.
 
 Space constructors are evaluated lazily, only when accessed. To force-evaluate a space constructor even after its initial evaluation, we use the suffix operator `!`, essentially turning the constructor into a function.
 
@@ -233,6 +233,8 @@ n!
 ```
 
 Here, `n!` simply returns `100`.
+
+Spaces are assigned and passed by reference.
 
 ## Miscellaneous Operators
 
