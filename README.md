@@ -404,6 +404,8 @@ We can push a value onto the reception stack of an IP-identified network or comp
 
 The first operator uses IPv4, and the second one uses IPv6. Thhe left operand is the raw address that corresponds to the IP version.
 
+Attempting to push null does nothing.
+
 We can also pop a value from the reception stack using the suffix operator `?`:
 
 ```kid
