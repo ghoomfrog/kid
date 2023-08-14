@@ -212,8 +212,7 @@ All of the following operators have equal precedence.
 - `$x + $y`
 - `$x - $y`
 - `$x * $y`
-- `$x / $y`
-- `$x % $y`
+- `$x / $y` (a list of the quotient and remainder)
 - `~$x` (bitwise inversion)
 - `$x | $y`
 - `$x ^ $y` (bitwise XOR)
