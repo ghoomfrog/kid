@@ -240,7 +240,7 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 `123         \ 0
 `":)"        \ ""
 `":)"...     \ ... ...
-`{? + 1}     \ {}
+`{## + 1}    \ {}
 ```
 
 One benefit to this is checking a value's type by comparing against its default value.
@@ -338,12 +338,12 @@ The operator's left operand is optional, defaulting to null.
 All functions in Kid are scoped coroutines with one optional parameter and one return value which is null by default.
 
 ```kid
-plusOne = {? + 1}
+plusOne = {## + 1}
 ```
 
-Here, `plusOne` is assigned a function that returns `? + 1`.
+Here, `plusOne` is assigned a function that returns `## + 1`.
 
-`?` expands to the argument. It defaults to null if no argument was passed.
+`##` expands to the argument. It defaults to null if no argument was passed.
 
 Functions can access neighboring keys of the keys they're assigned to.
 
@@ -378,15 +378,15 @@ Functions are assigned and passed by reference.
 
 ## Time
 
-`***` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
+`??` is a millisecond-level Unix timestamp quantity referring to now. In addition to keeping the time with it, we can use it to wait a number of milliseconds.
 
 ```kid
 wait = {
-	start    = ***
-	duration = ?
+	start    = ??
+	duration = ##
 	end      = $start + $duration
 	
-	getOngoing = {*** - $start < $duration}
+	getOngoing = {?? - $start < $duration}
 	getOngoing ->> ...
 }
 ```
@@ -432,7 +432,7 @@ Since quantities are 64 bits, and IPv6 addresses are 128 bits (double 64), a lis
 We can also assign an expression to be lazily evaluated on incoming data using the binary operator `~>`:
 
 ```kid
-2130706433 ~> !doSomethingWith ?
+2130706433 ~> !doSomethingWith ##
 ```
 
 A special case of addresses is `0` and `0 0` which don't do anything with data.
