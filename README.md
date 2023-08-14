@@ -139,9 +139,9 @@ And, of course, spaces can contain other spaces.
 ```kid
 parent =
 		grandchild
-	child
+	lara=child
 	anotherChild
-		anotherGrandchild
+		tim=anotherGrandchild
 ```
 
 You'll learn more about using tabs [later](#blocks).
