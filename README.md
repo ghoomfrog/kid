@@ -305,7 +305,7 @@ Newlines into a deeper indentation introduce a space, and newlines into the same
 
 ## Blobs
 
-Blobs are keys stored in disk (alongside memory) in a program-local folder. They're prefixed by `@`.
+Blobs are keys stored in disk in a program-local folder. They're prefixed by `@`.
 
 ```kid
 @todos =
