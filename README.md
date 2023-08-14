@@ -349,7 +349,7 @@ Just like conditional operators, the left operand of this operator is a key, and
 
 So while `!getFemale` is truthy, this increments `nLooks` by `1`.
 
-The operator's left operand is optional, defaulting to null. 
+The operators lazily evaluates the right operand, and its left operand is optional, defaulting to null. 
 
 ## Functions
 
@@ -428,24 +428,22 @@ Asynchronous blocks always return null.
 
 ## Networking
 
-We can send a list of quantities as data to an IP-identified network or computer using the binary operator `<~`.
+We can send a list of quantities as data to an IP-identified network or computer using the binary operators `<~` and `<<~`.
 
 ```kid
 2130706433 <~
 	21
 	43
 	65
-1 0 <~
+1 <<~
 	21
 	43
 	65
 ```
 
-The first line uses an IPv4 address, and the second one uses an IPv6 one.
+The first operator accepts an IPv4 address, and the second one uses an IPv6 one.
 
-`2130706433` is the raw quantity that is the IPv4 address 127.0.0.1.
-
-Since quantities are 64 bits, and IPv6 addresses are 128 bits (double 64), a list of two quantities is used to represent IPv6 addresses. `0 1` is equivalent to the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001. The first item `1` corresponds to the least significant half of the address (0000:0000:0000:0001), and the second item `0` corresponds to the most significant half (0000:0000:0000:0000).
+`2130706433` is the raw quantity that is the IPv4 address 127.0.0.1, and `1` is the raw quantity that is the IPv6 address 0000:0000:0000:0000:0000:0000:0000:0001.
 
 We can also assign an expression to be lazily evaluated on incoming data using the binary operator `~>`:
 
@@ -453,7 +451,7 @@ We can also assign an expression to be lazily evaluated on incoming data using t
 2130706433 ~> !doSomethingWith ##
 ```
 
-A special case of addresses is `0` and `0 0` which don't do anything with data.
+A special case of addresses is `0` which don't do anything with data.
 
 ## Modules
 
