@@ -349,16 +349,15 @@ Kid only features While and Until loops at its core, using the respective binary
 
 ```kid
 nLooks = 0
-getFemale = $female...
-getFemale ->> :
+$female ->> :
 	nLooks = nLooks + 1
 ```
 
-The left operand is a function that gets called in every iteration.
+Operands are lazily evaluted in every iteration.
 
-So while `getFemale!` is truthy, this increments `nLooks` by `1`.
+While `$female` is truthy, this increments `nLooks` by `1`.
 
-The operators lazily evaluates the right operand, and its left operand is optional, defaulting to null. 
+The left operand is optional, defaulting to null. 
 
 ## Time
 
