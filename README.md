@@ -349,11 +349,11 @@ Blobs have length limits because of filename limitations in common filesystems.
 
 ## Loops
 
-Kid only features While and Until loops at its core, using the respective binary operators `->>` and `|>>`.
+Kid only features While and Until loops at its core, using the respective binary operators `-->` and `|>>`.
 
 ```kid
 nLooks = 0
-$female ->> :
+$female --> :
 	nLooks = nLooks + 1
 ```
 
@@ -374,7 +374,7 @@ wait =
 	end      = $start + $duration
 	
 	getOngoing = ** - $start < $duration ...
-	getOngoing ->> ...
+	getOngoing --> ...
 ```
 
 ## Asynchronous Evaluation
