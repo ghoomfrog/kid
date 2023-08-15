@@ -396,7 +396,7 @@ Asynchronous blocks always return null.
 
 ## Networking
 
-We can push a value onto the reception stack of an IP-identified network or computer using the binary operators `<~` and `<~~`.
+We can push a the raw form of value as a string onto the reception stack of an IP-identified network or computer using the binary operators `<~` and `<~~`.
 
 ```kid
 2130706433 <~ "Hello!"
@@ -407,7 +407,7 @@ The first operator uses IPv4, and the second one uses IPv6. Thhe left operand is
 
 Nothing is sent when attempting to push null.
 
-We can also pop a value from the reception stack using the suffix operator `?`:
+We can also pop a string from the reception stack using the suffix operator `?`:
 
 ```kid
 2130706433?
