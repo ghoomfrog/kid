@@ -373,8 +373,7 @@ wait =
 	start    = **
 	end      = $start + $duration
 	
-	getOngoing = ** - $start < $duration ...
-	getOngoing --> ...
+	** - $start < $duration --> ...
 ```
 
 ## Asynchronous Evaluation
