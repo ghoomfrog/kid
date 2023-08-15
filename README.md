@@ -390,7 +390,7 @@ a = 1
 b = 2
 ```
 
-Here, `a` and `b` are defined before `c` because `c` was defined asynchronously after `1000` milliseconds. The whole asynchronous expression returns null.
+Here, `a` and `b` are defined before `c` because `c` was defined asynchronously after `1000` milliseconds. The whole asynchronous group returns null.
 
 ## Networking
 
