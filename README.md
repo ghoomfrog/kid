@@ -271,8 +271,7 @@ We can use the prefix operator ``` ` ``` to get the default value of a value's t
 ```kid
 `...         \ ...
 `123         \ 0
-`":)"        \ ""
-`":)"...     \ ... ...
+`":)"        \ ... ...
 ```
 
 One benefit to this is checking a value's type by comparing against its default value.
