@@ -396,7 +396,7 @@ Asynchronous blocks always return null.
 
 ## Networking
 
-We can push the raw form of value as a byte list onto the reception stack of an IP-identified network or computer using the binary operators `<~` and `<~~`.
+We can push the raw form of a value as a byte list onto the reception stack of an IP-identified network or computer using the binary operators `<~` and `<~~`.
 
 ```kid
 2130706433 <~ "Hello!"
