@@ -10,10 +10,10 @@ I'm going to work on a cross-platform interpreter and the standard library (some
 
 ## Comments
 
-Kid only has inline comments, prefixed by `\`.
+Kid only has multiline comments, enclosed in `()`.
 
 ```kid
-\ Hey, kids (again)!
+(Hey, kids (again)!)
 ```
 
 ## Lazy Evaluation
@@ -273,9 +273,9 @@ Nulls are treated as 0 in `<`.
 We can use the prefix operator ``` ` ``` to get the default value of a value's type.
 
 ```kid
-`...         \ ...
-`123         \ 0
-`":)"        \ ... ...
+`...  (...)
+`123  (0)
+`":)" (... ...)
 ```
 
 One benefit to this is checking a value's type by comparing against its default value.
@@ -377,15 +377,15 @@ wait =
 
 ## Asynchronous Evaluation
 
-Expressions can be evaluated asynchronously if they're enclosed in `()`.
+Expressions can be evaluated asynchronously if they're enclosed in `{}`.
 
 ```kid
 a = 1
-(
+{
 	duration = 1000
 	wait!
 	c = 3
-)
+}
 b = 2
 ```
 
