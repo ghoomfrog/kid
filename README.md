@@ -40,7 +40,7 @@ Quantities in Kid are unsigned integers that are dynamically sized (with a 1-byt
 123
 ```
 
-Quantity literals can contain a single `.` as a readability enhancement.
+Quantity literals can contain a single `.` as a cosmetic decimal point.
 
 ```kid
 100.00
