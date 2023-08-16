@@ -90,13 +90,15 @@ smiley=":)" score=123 percentage=45.00
 
 Left operands of `=` are keys, and right ones are items assigned to those keys. Keys can be of any type. As you can see, item separation is implicit and is not marked by anything.
 
-Items in the same space can access each other using the prefix operator `$`:
+Items in or outside a space can be accessed using the prefix operator `$`:
 
 ```kid
 smiley=":)" score=123 percentage=45.00 otherScore=$score
 ```
 
 Here, `$score` expands to `123` and is then assigned to the key `otherScore`.
+
+When accessing keys, the ones in the same space take priority over the ones outside.
 
 We can also redefine keys:
 
@@ -162,7 +164,7 @@ We can access a space's number of items—its length—by prefixing its name by 
 
 This returns 3. If this operator is used on nulls, it returns 0. Otherwise, if it's used on other non-space values, it returns 1.
 
-We can access keys of outside spaces using the binary operator `#`:
+We can access keys of certain spaces using the binary operator `#`:
 
 ```kid
 otherQuantities =
@@ -170,8 +172,6 @@ otherQuantities =
 	777
 	quantities#1
 ```
-
-When accessing keys, the ones in the same space take priority over the ones outside.
 
 To delete a key, we just set it to null, which will decrement the space's length.
 
@@ -218,8 +218,6 @@ otherQuantities =
 ```
 
 Here, `otherQuantities` is assigned `20`.
-
-Omitting all operands of `=` force-returns the space itself.
 
 To force-evaluate a space constructor, we use the suffix operator `!`, essentially turning the constructor into a function. This is called *calling* the space.
 
