@@ -219,7 +219,7 @@ Here, `otherQuantities` is assigned `20`.
 
 Omitting all operands of `=` force-returns the space itself.
 
-To re-evaluate a space constructor, we use the suffix operator `!`, essentially turning the constructor into a function. This is called *calling* the space.
+To force-evaluate a space constructor, we use the suffix operator `!`, essentially turning the constructor into a function. This is called *calling* the space.
 
 ```kid
 plusOne = args#0 + 1
