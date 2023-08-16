@@ -16,6 +16,10 @@ Kid only has inline comments, prefixed by `\`.
 \ Hey, kids (again)!
 ```
 
+## Lazy Evaluation
+
+All expressions in Kid are lazily evaluated: meaning they only get evaluated when they need to be.
+
 ## Nulls
 
 Nulls are the no-values: they denote that there is no value.
@@ -215,7 +219,7 @@ Here, `otherQuantities` is assigned `20`.
 
 Omitting all operands of `=` force-returns the space itself.
 
-Space constructors are evaluated lazily, only when accessed. To force-evaluate a space constructor even after its initial evaluation, we use the suffix operator `!`, essentially turning the constructor into a function.
+To re-evaluate a space constructor, we use the suffix operator `!`, essentially turning the constructor into a function. This is called *calling* the space.
 
 ```kid
 plusOne = args#0 + 1
@@ -300,8 +304,6 @@ If `$female` is null, this returns `":|"`. Otherwise, it returns `$female`.
 
 And so `|>` can be used to specify a fallback in case a value is null.
 
-Both operators lazily evaluate the right operand.
-
 `->` and `|>` can be combined to make an if-else combination:
 
 ```kid
@@ -355,8 +357,6 @@ nLooks = 0
 $female --> :
 	nLooks = nLooks + 1
 ```
-
-Operands are lazily evaluted in every iteration.
 
 While `$female` is truthy, this increments `nLooks` by `1`.
 
