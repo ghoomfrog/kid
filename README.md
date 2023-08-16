@@ -16,6 +16,8 @@ Kid only has multiline comments, enclosed in `()`.
 (Hey, kids (again)!)
 ```
 
+As you can see, Kid allows nesting parentheses in comments.
+
 ## Lazy Evaluation
 
 All expressions in Kid are lazily evaluated: meaning they only get evaluated when they need to be.
