@@ -50,7 +50,7 @@ This is equivalent to `10000`.
 
 ## Strings
 
-Strings are just lists of Unicode character quantities. You'll learn more about lists in the [next section](#spaces). Strings are enclosed in `"`.
+Strings are just lists of Unicode character quantities. You'll learn more about lists in the [next section](#spaces). Strings are enclosed in `""`.
 
 ```kid
 ":)"
@@ -402,7 +402,7 @@ We can push the raw form of a value as a byte list onto the reception stack of a
 1 <~~ $n + 1 ...
 ```
 
-The first operator uses IPv4, and the second one uses IPv6. Thhe left operand is the raw address that corresponds to the IP version.
+The first operator uses IPv4, and the second one uses IPv6. The left operand is the raw address that corresponds to the IP version.
 
 Nothing is sent when attempting to push null.
 
